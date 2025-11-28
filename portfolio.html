@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Feitosa | Portfólio</title>
+
+    <!-- 1. Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 2. Import Map -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react@0.263.1"
+      }
+    }
+    </script>
+
+    <!-- 3. Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Utilitários para sombras duras (Brutalismo/Xilogravura) */
+        .shadow-hard {
+            box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+        }
+
+        .shadow-hard-lg {
+            box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+        }
+    </style>
+</head>
+
+<body class="bg-neutral-50 text-neutral-900 font-sans selection:bg-black selection:text-white">
+
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+        import React, { useState } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { Mail, Instagram, Gamepad2, Code, MoveRight, Download, Menu, X, ExternalLink, Moon } from 'lucide-react';
+
+        const Portfolio = () => {
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+            const scrollToSection = (id) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                    setIsMenuOpen(false);
+                }
+            };
+
+            const navLinks = [
+                { name: 'Poética', id: 'poetica' },
+                { name: 'Projetos', id: 'projetos' },
+                { name: 'Sobre', id: 'sobre' },
+                { name: 'Contato', id: 'contato' },
+            ];
+
+            return (
+                <div className="min-h-screen flex flex-col">
+
+                    {/* Navigation */}
+                    <nav className="fixed top-0 left-0 w-full bg-neutral-50/95 backdrop-blur-sm z-50 border-b-2 border-neutral-900">
+                        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+                            <div
+                                className="text-xl font-black tracking-tighter cursor-pointer border-2 border-black bg-black text-white px-2 py-1 hover:bg-white hover:text-black transition-colors"
+                                onClick={() => scrollToSection('home')}
+                            >
+                                MF.
+                            </div>
+
+                            {/* Desktop Nav */}
+                            <div className="hidden md:flex gap-8">
+                                {navLinks.map((link) => (
+                                    <button
+                                        key={link.name}
+                                        onClick={() => scrollToSection(link.id)}
+                                        className="text-sm font-bold uppercase tracking-widest hover:bg-black hover:text-white px-2 py-1 transition-all"
+                                    >
+                                        {link.name}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Mobile Menu Button */}
+                            <button
+                                className="md:hidden p-2 text-black border-2 border-transparent hover:border-black transition-all"
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            >
+                                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                            </button>
+                        </div>
+
+                        {/* Mobile Nav Overlay */}
+                        {isMenuOpen && (
+                            <div className="md:hidden absolute top-full left-0 w-full bg-neutral-50 border-b-2 border-black py-6 px-6 flex flex-col gap-4 shadow-hard-lg">
+                                {navLinks.map((link) => (
+                                    <button
+                                        key={link.name}
+                                        onClick={() => scrollToSection(link.id)}
+                                        className="text-left text-lg font-black uppercase tracking-widest border-l-4 border-transparent hover:border-black pl-2 transition-all"
+                                    >
+                                        {link.name}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </nav>
+
+                    {/* Hero Section */}
+                    <header id="home" className="pt-32 pb-20 px-6 max-w-6xl mx-auto min-h-[85vh] flex flex-col justify-center">
+                        <h1 className="text-6xl md:text-9xl font-black tracking-tighter mb-6 leading-[0.85]">
+                            MICHAEL<br />FEITOSA
+                        </h1>
+                        <div className="h-2 w-32 bg-black mb-8"></div>
+                        <p className="text-xl md:text-2xl font-medium max-w-2xl leading-relaxed mb-10 border-l-4 border-neutral-300 pl-6">
+                            Game Designer • Artista Digital • Arquiteto de Software
+                        </p>
+
+                        <div className="flex flex-wrap gap-4">
+                            <a href="#projetos" onClick={(e) => { e.preventDefault(); scrollToSection('projetos') }} className="group flex items-center gap-2 bg-black text-white border-2 border-black px-8 py-4 font-bold hover:bg-white hover:text-black hover:shadow-hard transition-all">
+                                Ver Projetos <MoveRight className="group-hover:translate-x-1 transition-transform" />
+                            </a>
+                            <a href="https://kaelfeitosa.itch.io" target="_blank" rel="noreferrer" className="flex items-center gap-2 border-2 border-black px-8 py-4 font-bold hover:bg-neutral-100 hover:shadow-hard transition-all">
+                                <Gamepad2 size={20} /> Itch.io
+                            </a>
+                        </div>
+                    </header>
+
+                    {/* Poética Section */}
+                    <section id="poetica" className="bg-neutral-900 text-neutral-200 py-24 px-6 border-y-2 border-black">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="flex items-center gap-4 mb-12">
+                                <div className="h-px flex-1 bg-neutral-700"></div>
+                                <h2 className="text-sm font-mono uppercase tracking-[0.3em] text-neutral-400">Poética e Pesquisa</h2>
+                                <div className="h-px flex-1 bg-neutral-700"></div>
+                            </div>
+
+                            <p className="text-2xl md:text-4xl font-serif leading-tight text-center">
+                                "Minha prática investiga a memória afetiva da infância e a cultura popular cearense através de uma estética minimalista baseada em <span className="text-white bg-neutral-800 px-2 py-1 box-decoration-clone">monocromia, silhuetas e alto contraste</span>."
+                            </p>
+
+                            <div className="mt-16 grid md:grid-cols-2 gap-12 text-neutral-400 leading-relaxed font-light text-lg">
+                                <p>
+                                    Desenvolvo jogos 2D, narrativas interativas e instalações digitais que transformam gestos populares em experiências contemporâneas. A escolha pelo alto contraste não é apenas estética; atua nativamente como recurso de acessibilidade visual.
+                                </p>
+                                <p>
+                                    No <strong>Tejo Estúdio</strong>, trabalho no encontro entre arte digital e engenharia, explorando como sistemas interativos podem ampliar narrativas delicadas, identidades visuais e relações com o território.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Projects Section */}
+                    <section id="projetos" className="py-24 px-6 max-w-6xl mx-auto">
+                        <div className="flex flex-col md:flex-row items-baseline gap-6 mb-20 border-b-2 border-black pb-8">
+                            <h2 className="text-5xl md:text-7xl font-black tracking-tighter">PROJETOS</h2>
+                            <p className="text-neutral-500 font-mono text-lg">SELEÇÃO 2024 — 2026</p>
+                        </div>
+
+                        <div className="space-y-24">
+
+                            {/* Project 1: Vem, Exu (VERTICAL 3:4) */}
+                            <article className="grid md:grid-cols-12 gap-8 items-start group">
+                                {/* Imagem agora ocupa 5 colunas (antes era 7) para equilibrar a altura vertical */}
+                                <div className="md:col-span-5 relative border-2 border-black shadow-hard group-hover:shadow-hard-lg transition-all duration-300 bg-white">
+                                    {/* Mudança de aspect-video para aspect-[3/4] */}
+                                    <div className="aspect-[3/4] overflow-hidden">
+                                        <img
+                                            src="./images/portfolio/vem_exu.png"
+                                            alt="Cena do jogo Vem Exu com estética de silhuetas"
+                                            onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div class=\'w-full h-full bg-neutral-100 flex flex-col items-center justify-center text-neutral-400 p-4 text-center font-mono\'><span class=\'text-4xl mb-2\'>🖼️</span>Imagem não encontrada:<br/>assets/vemexu1.png</div>' }}
+                                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                        />
+                                    </div>
+                                </div>
+                                {/* Texto agora ocupa 7 colunas (antes era 5) */}
+                                <div className="md:col-span-7 flex flex-col h-full justify-between py-2">
+                                    <div>
+                                        <h3 className="text-4xl font-bold mb-3 uppercase group-hover:bg-black group-hover:text-white w-max px-2 -ml-2 transition-colors">Vem, Exu</h3>
+                                        <div className="flex flex-wrap gap-2 mb-6 font-mono text-xs">
+                                            <span className="bg-neutral-200 px-2 py-1">2024–2026</span>
+                                            <span className="bg-neutral-200 px-2 py-1">JOGO NARRATIVO</span>
+                                        </div>
+
+                                        <p className="mb-6 text-lg leading-relaxed text-neutral-800">
+                                            Uma leitura autoral interativa inspirada na obra “Contos de Exu”. A experiência articula infância, afeto e símbolos populares através de uma estética monocromática de alto contraste.
+                                        </p>
+
+                                        <div className="space-y-3 mb-8 text-sm border-l-2 border-neutral-300 pl-4">
+                                            <div><span className="font-bold">Poética:</span> <span className="text-neutral-600">Gestos pequenos, silhuetas.</span></div>
+                                            <div><span className="font-bold">Tech:</span> <span className="text-neutral-600">Godot 4 (GDScript 2).</span></div>
+                                            <div><span className="font-bold">Destaque:</span> <span className="text-neutral-600">Edital Paulo Gustavo (CE).</span></div>
+                                        </div>
+                                    </div>
+
+                                    <a href="https://bit.ly/vemexu" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-bold border-2 border-black bg-white px-4 py-2 hover:bg-black hover:text-white transition-all w-max shadow-hard hover:translate-x-1 hover:-translate-y-1">
+                                        Jogar Demo <ExternalLink size={16} />
+                                    </a>
+                                </div>
+                            </article>
+
+                            {/* Project 2: RAIAR (HORIZONTAL 16:9) */}
+                            <article className="grid md:grid-cols-12 gap-8 items-start group">
+                                <div className="md:col-span-5 md:order-1 order-2 flex flex-col h-full justify-between py-2">
+                                    <div>
+                                        <h3 className="text-4xl font-bold mb-3 uppercase group-hover:bg-black group-hover:text-white w-max px-2 -ml-2 transition-colors">RAIAR</h3>
+                                        <div className="flex flex-wrap gap-2 mb-6 font-mono text-xs">
+                                            <span className="bg-neutral-200 px-2 py-1">2025–2026</span>
+                                            <span className="bg-neutral-200 px-2 py-1">INSTALAÇÃO</span>
+                                        </div>
+
+                                        <p className="mb-6 text-lg leading-relaxed text-neutral-800">
+                                            Transforma a tradição cearense de soltar arraias em uma experiência digital coletiva. O público usa o celular para criar e mover arraias em uma projeção generativa.
+                                        </p>
+
+                                        <div className="space-y-3 mb-8 text-sm border-l-2 border-neutral-300 pl-4">
+                                            <div><span className="font-bold">Poética:</span> <span className="text-neutral-600">Vento, céu, participação.</span></div>
+                                            <div><span className="font-bold">Tech:</span> <span className="text-neutral-600">WebSockets, Projeção Generativa.</span></div>
+                                            <div><span className="font-bold">Destaque:</span> <span className="text-neutral-600">Edital das Artes Fortaleza.</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="md:col-span-7 md:order-2 order-1 relative border-2 border-black shadow-hard group-hover:shadow-hard-lg transition-all duration-300 bg-neutral-900">
+                                    <div className="aspect-video overflow-hidden flex flex-col items-center justify-center text-neutral-500 font-mono">
+                                        {/* Placeholder Sem Foto */}
+                                        <div className="border-2 border-dashed border-neutral-600 px-6 py-3 uppercase tracking-widest text-sm md:text-base">
+                                            Imagem em Breve
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            {/* Other Projects Grid */}
+                            <div className="pt-20 mt-20 border-t-2 border-black">
+                                <h4 className="text-2xl font-black mb-12 uppercase tracking-tight flex items-center gap-3">
+                                    <span className="w-4 h-4 bg-black"></span> Outros Experimentos
+                                </h4>
+
+                                <div className="grid md:grid-cols-3 gap-8">
+
+                                    {/* Maria da Lua */}
+                                    <div className="group cursor-pointer bg-white border-2 border-transparent hover:border-black p-4 transition-all">
+                                        <div className="overflow-hidden border-2 border-neutral-200 group-hover:border-black mb-4 h-48 bg-neutral-100 relative shadow-sm group-hover:shadow-hard transition-all">
+                                            <img
+                                                src="./images/portfolio/maria_da_lua.png"
+                                                alt="Maria da Lua"
+                                                onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div class=\'w-full h-full flex items-center justify-center text-xs p-4 text-center text-neutral-400 font-mono\'>marialua1.png</div>' }}
+                                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                            />
+                                        </div>
+                                        <h5 className="font-bold text-lg mb-2 uppercase">Maria da Lua</h5>
+                                        <p className="text-sm text-neutral-600 leading-relaxed">
+                                            <a href="https://youtu.be/F-0FELizya8" target="_blank" rel="noreferrer" className="underline font-bold">Videopoema</a> sobre lobismulheres e imaginário fantástico nordestino. Estética lunar.
+                                        </p>
+                                    </div>
+
+                                    {/* Hamilton */}
+                                    <div className="group cursor-pointer bg-white border-2 border-transparent hover:border-black p-4 transition-all">
+                                        <div className="overflow-hidden border-2 border-neutral-200 group-hover:border-black mb-4 h-48 bg-neutral-100 relative shadow-sm group-hover:shadow-hard transition-all">
+                                            <img
+                                                src="./images/portfolio/hamilton.png"
+                                                alt="Jogo Hamilton"
+                                                onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div class=\'w-full h-full flex items-center justify-center text-xs p-4 text-center text-neutral-400 font-mono\'>hamilton.png</div>' }}
+                                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                            />
+                                        </div>
+                                        <h5 className="font-bold text-lg mb-2 uppercase">Hamilton</h5>
+                                        <p className="text-sm text-neutral-600 leading-relaxed">
+                                            Puzzle casual na <a href="https://play.google.com/store/apps/details?id=dev.tiugames.hamilton" target="_blank" rel="noreferrer" className="underline font-bold">PlayStore</a>. Exploração de design minimalista e mecânicas compactas.
+                                        </p>
+                                    </div>
+
+                                    {/* Sina de Siá */}
+                                    <div className="group cursor-pointer bg-white border-2 border-transparent hover:border-black p-4 transition-all">
+                                        <div className="overflow-hidden border-2 border-neutral-200 group-hover:border-black mb-4 h-48 bg-neutral-100 relative shadow-sm group-hover:shadow-hard transition-all">
+                                            <img
+                                                src="./images/portfolio/sina_de_sia.png"
+                                                alt="Jogo Sina de Siá"
+                                                onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div class=\'w-full h-full flex items-center justify-center text-xs p-4 text-center text-neutral-400 font-mono\'>sinadesia.png</div>' }}
+                                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                            />
+                                        </div>
+                                        <h5 className="font-bold text-lg mb-2 uppercase">Sina de Siá</h5>
+                                        <p className="text-sm text-neutral-600 leading-relaxed">
+                                            <a href="https://youtu.be/oYoBz9493n8" target="_blank" rel="noreferrer" className="underline font-bold">Metroidvania</a> com estética de cordel. Narrativa interativa de luta e memória.
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Exhibitions & Skills */}
+                    <section className="bg-neutral-900 text-neutral-400 py-24 px-6 border-y-2 border-black">
+                        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20">
+
+                            {/* Exhibitions */}
+                            <div>
+                                <h3 className="text-white text-2xl font-black uppercase tracking-widest mb-8 flex items-center gap-3">
+                                    <Moon size={24} /> Exposições & Circulação
+                                </h3>
+                                <ul className="space-y-6 font-mono text-sm">
+                                    <li className="flex gap-4 border-l-2 border-neutral-700 pl-4 hover:border-white transition-colors">
+                                        <span className="text-neutral-500 whitespace-nowrap font-bold">2026</span>
+                                        <span><strong className="text-white block font-sans text-base">SANA</strong> Exibição confirmada (Vem, Exu).</span>
+                                    </li>
+                                    <li className="flex gap-4 border-l-2 border-neutral-700 pl-4 hover:border-white transition-colors">
+                                        <span className="text-neutral-500 whitespace-nowrap font-bold">2026</span>
+                                        <span><strong className="text-white block font-sans text-base">Centros Culturais BNB</strong> Circulação (RAIAR).</span>
+                                    </li>
+                                    <li className="flex gap-4 border-l-2 border-neutral-700 pl-4 hover:border-white transition-colors">
+                                        <span className="text-neutral-500 whitespace-nowrap font-bold">2025</span>
+                                        <span><strong className="text-white block font-sans text-base">Feira do Conhecimento</strong> Exibição (Vem, Exu).</span>
+                                    </li>
+                                    <li className="flex gap-4 border-l-2 border-neutral-700 pl-4 hover:border-white transition-colors">
+                                        <span className="text-neutral-500 whitespace-nowrap font-bold">2025–2026</span>
+                                        <span><strong className="text-white block font-sans text-base">Escolas Municipais</strong> Oficinas educativas.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Tools */}
+                            <div>
+                                <h3 className="text-white text-2xl font-black uppercase tracking-widest mb-8 flex items-center gap-3">
+                                    <Code size={24} /> Ferramentas
+                                </h3>
+                                <div className="grid grid-cols-2 gap-x-8 gap-y-8 text-sm">
+                                    <div>
+                                        <h4 className="text-white font-bold mb-4 uppercase text-xs tracking-widest border-b border-neutral-700 pb-2">Engine & Code</h4>
+                                        <ul className="space-y-3 font-mono">
+                                            <li className="flex items-center gap-2"><div className="w-1 h-1 bg-white"></div> Godot 4 (GDScript)</li>
+                                            <li className="flex items-center gap-2"><div className="w-1 h-1 bg-white"></div> Unity (C#)</li>
+                                            <li className="flex items-center gap-2"><div className="w-1 h-1 bg-white"></div> Java / JS / React</li>
+                                            <li className="flex items-center gap-2"><div className="w-1 h-1 bg-white"></div> WebSockets</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-bold mb-4 uppercase text-xs tracking-widest border-b border-neutral-700 pb-2">Processos</h4>
+                                        <ul className="space-y-3 font-mono">
+                                            <li className="flex items-center gap-2"><div className="w-1 h-1 bg-white"></div> Narrativa Interativa</li>
+                                            <li className="flex items-center gap-2"><div className="w-1 h-1 bg-white"></div> Acessibilidade UI</li>
+                                            <li className="flex items-center gap-2"><div className="w-1 h-1 bg-white"></div> Arte Generativa</li>
+                                            <li className="flex items-center gap-2"><div className="w-1 h-1 bg-white"></div> Minimalismo</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    {/* About & Contact */}
+                    <section id="sobre" className="py-24 px-6 max-w-4xl mx-auto">
+                        <div className="bg-white border-2 border-black p-8 md:p-12 shadow-hard-lg">
+                            <h2 className="text-4xl font-black mb-8 uppercase tracking-tighter">Sobre Mim</h2>
+                            <p className="mb-6 leading-relaxed text-neutral-800 text-lg">
+                                Sou Michael Feitosa. Fundador do <strong>Tejo Estúdio</strong>.
+                            </p>
+                            <p className="mb-8 leading-relaxed text-neutral-700">
+                                Designer de jogos, artista digital e desenvolvedor. A partir de 2023, <strong>canalizo minha expertise técnica de uma década</strong> para potencializar a produção autoral através de editais públicos e circulação cultural, unindo rigor de engenharia, sensibilidade visual e investigação sobre território, memória e símbolos populares.
+                            </p>
+
+                            <div className="mt-12 flex flex-col md:flex-row gap-8 pt-8 border-t-2 border-neutral-100">
+                                <div className="flex-1" id="contato">
+                                    <h3 className="font-bold mb-4 uppercase text-xs tracking-widest">Contato</h3>
+                                    <a href="mailto:michaelfeitosa@gmail.com" className="flex items-center gap-2 text-lg font-bold hover:underline mb-2">
+                                        <Mail size={20} /> michaelrfeitosa@gmail.com
+                                    </a>
+                                    <p className="text-sm text-neutral-500 font-mono">Fortaleza — Ceará</p>
+                                </div>
+
+                                <div className="flex-1">
+                                    <h3 className="font-bold mb-4 uppercase text-xs tracking-widest">Conectar</h3>
+                                    <div className="flex gap-4">
+                                        <a href="https://instagram.com/tejoestudio" target="_blank" className="p-3 bg-black text-white hover:bg-neutral-800 transition-colors border-2 border-black">
+                                            <Instagram size={20} />
+                                        </a>
+                                        <a href="https://kaelfeitosa.itch.io" target="_blank" className="p-3 bg-black text-white hover:bg-neutral-800 transition-colors border-2 border-black">
+                                            <Gamepad2 size={20} />
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="flex-1">
+                                    <h3 className="font-bold mb-4 uppercase text-xs tracking-widest">Documentos</h3>
+                                    <a href="./docs/curriculo_michael_feitosa.pdf" download className="flex items-center gap-2 font-bold uppercase tracking-wide hover:bg-black hover:text-white border-2 border-black px-4 py-2 w-max transition-all">
+                                        <Download size={16} /> Baixar Currículo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="bg-neutral-100 text-neutral-900 py-12 text-center text-xs font-mono border-t-2 border-neutral-200">
+                        <p className="font-bold">&copy; {new Date().getFullYear()} TEJO ESTÚDIO.</p>
+                        <p className="mt-2 text-neutral-500">Feito com silêncio e código.</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<Portfolio />);
+    </script>
+</body>
+
+</html>
