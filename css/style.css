@@ -247,6 +247,14 @@ a:hover {
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* Light theme is default above */
 
+/* Logo adjustments for light theme (and auto theme when light) */
+html:not(.theme-dark) .logo-invertible {
+	filter: invert(1);
+}
+html:not(.theme-dark) .logo-with-background {
+	background-color: #121212;
+}
+
 /* Dark theme */
 :root.theme-dark {
 	color-scheme:dark;
