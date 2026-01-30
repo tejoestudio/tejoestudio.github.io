@@ -293,6 +293,9 @@ html:not(.theme-dark) .logo-with-background {
 :root.theme-auto a:not(.button):hover {
 	color:#7AB8FF;
 }
+html.theme-auto .logo-invertible {
+	filter: none;
+}
 }
 
 /* Button Text Color Override
