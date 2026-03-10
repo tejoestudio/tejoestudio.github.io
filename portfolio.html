@@ -183,6 +183,7 @@
 
         const Portfolio = () => {
             const [isMenuOpen, setIsMenuOpen] = useState(false);
+            const [selectedImage, setSelectedImage] = useState(null);
 
             const scrollToSection = (id) => {
                 const element = document.getElementById(id);
@@ -274,31 +275,38 @@
                     </header>
 
                     {/* Poética Section */}
-                    <section id="poetica" className="bg-neutral-900 text-neutral-200 py-24 px-6 border-y-2 border-black">
-                        <div className="max-w-4xl mx-auto">
-                            <div className="flex items-center gap-4 mb-12">
-                                <div className="h-px flex-1 bg-neutral-700"></div>
+                    <section id="poetica" className="bg-neutral-900 text-neutral-200 py-24 border-y-2 border-black">
+                        <div className="max-w-6xl mx-auto px-6">
+                            <div className="max-w-4xl mx-auto">
+                                <div className="flex items-center gap-4 mb-12">
+                                    <div className="h-px flex-1 bg-neutral-700"></div>
                                 <h2 className="text-sm font-mono uppercase tracking-[0.3em] text-neutral-400">Poética e Pesquisa</h2>
                                 <div className="h-px flex-1 bg-neutral-700"></div>
                             </div>
 
                             <p className="text-2xl md:text-4xl font-serif leading-tight text-center">
-                                “Minha prática investiga a memória afetiva da infância e a cultura popular cearense por meio de uma estética minimalista baseada em <span className="text-white bg-neutral-800 px-2 py-1 box-decoration-clone">monocromia, silhuetas e alto contraste</span>.”
+                                “Minha prática investiga memória, infância e cultura popular por meio da criação de jogos narrativos e experiências interativas.”
                             </p>
 
                             <div className="mt-16 grid md:grid-cols-2 gap-12 text-neutral-400 leading-relaxed font-light text-lg">
+                                <div className="flex flex-col gap-4">
+                                    <p>
+                                        Minha estética utiliza monocromia, silhuetas e alto contraste como linguagem visual, explorando a força gráfica de formas simples.
+                                    </p>
+                                    <p>
+                                        Desenvolvo jogos autorais, narrativas interativas e instalações digitais que transformam gestos cotidianos em experiências sensíveis e contemplativas.
+                                    </p>
+                                </div>
                                 <p>
-                                    Desenvolvo jogos 2D, narrativas interativas e instalações digitais que transformam gestos cotidianos em experiências sensíveis e contemporâneas. A escolha pelo alto contraste não é apenas estética; também funciona como recurso de acessibilidade visual.
-                                </p>
-                                <p>
-                                    No <strong>Tejo Estúdio</strong>, investigo a interseção entre arte digital e engenharia de software, explorando como sistemas interativos podem ampliar narrativas visuais e relações com o território.
+                                    No <strong>Tejo Estúdio</strong> desenvolvo projetos que exploram a relação entre arte digital, narrativa interativa e tecnologia, investigando como sistemas interativos podem ampliar experiências visuais e relações com o território.
                                 </p>
                             </div>
                         </div>
-                    </section>
+                    </div>
+                </section>
 
                     {/* Projects Section */}
-                    <section id="projetos" className="py-24 px-6 max-w-6xl mx-auto">
+                    <section id="projetos" className="py-24 max-w-6xl mx-auto px-6">
                         <div className="mb-20 border-b-2 border-black pb-8">
                             <div className="flex flex-col md:flex-row items-baseline gap-6 mb-4">
                                 <h2 className="text-5xl md:text-7xl font-black tracking-tighter">PROJETOS</h2>
@@ -335,14 +343,14 @@
                                         </div>
 
                                         <p className="mb-6 text-lg leading-relaxed text-neutral-800">
-                                            Uma narrativa interativa inspirada no conto “Exu Ficou com Medo”, do livro Contos de Exu, de Rafael Semino. A experiência articula infância, afeto e símbolos populares por meio de uma estética monocromática de alto contraste, acompanhando um menino que atravessa uma tempestade fantástica após perder sua arraia.
+                                            Uma narrativa interativa inspirada no conto “Exu Ficou com Medo”, do livro Contos de Exu, de Rafael Semino. A experiência acompanha um menino que atravessa uma tempestade fantástica após perder sua arraia. A narrativa explora temas de infância, orgulho e reconciliação por meio de uma estética gráfica baseada em silhuetas e contraste.
                                         </p>
 
                                         <div className="space-y-3 mb-8 text-sm border-l-2 border-neutral-300 pl-4">
                                             <div><span className="font-bold">Poética:</span> <span className="text-neutral-600">Gestos pequenos, silhuetas</span></div>
                                             <div><span className="font-bold">Tech:</span> <span className="text-neutral-600">Godot 4 (GDScript 2)</span></div>
                                             <div><span className="font-bold">Destaque:</span> <span className="text-neutral-600">Projeto desenvolvido com apoio da Lei Paulo Gustavo (CE)</span></div>
-                                            <div><span className="font-bold">Circulação:</span> <span className="text-neutral-600">SANA, Feira do Conhecimento e apresentações educativas em escolas públicas de Fortaleza</span></div>
+                                            <div><span className="font-bold">Circulação:</span> <span className="text-neutral-600">SANA (Sala Black Heroes), Feira do Conhecimento e apresentações educativas em escolas públicas e espaços comunitários de Fortaleza</span></div>
                                         </div>
                                     </div>
 
@@ -363,13 +371,13 @@
                                         </div>
 
                                         <p className="mb-6 text-lg leading-relaxed text-neutral-800">
-                                            Transforma a tradição cearense de soltar arraias em uma experiência digital coletiva e participativa. O público utiliza o celular para criar e movimentar pipas digitais em uma projeção generativa coletiva.
+                                            Transforma a tradição cearense de soltar arraias em uma experiência digital coletiva. O público utiliza o celular para criar e movimentar pipas digitais em uma projeção generativa.
                                         </p>
 
                                         <div className="space-y-3 mb-8 text-sm border-l-2 border-neutral-300 pl-4">
                                             <div><span className="font-bold">Poética:</span> <span className="text-neutral-600">Vento, céu, participação</span></div>
                                             <div><span className="font-bold">Tech:</span> <span className="text-neutral-600">WebSockets, Projeção Generativa</span></div>
-                                            <div><span className="font-bold">Destaque:</span> <span className="text-neutral-600">Edital das Artes Fortaleza</span></div>
+                                            <div><span className="font-bold">Destaque:</span> <span className="text-neutral-600">Projeto selecionado no Edital das Artes Fortaleza</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -403,7 +411,7 @@
                                         </div>
                                         <h5 className="font-bold text-lg mb-2 uppercase">Maria da Lua</h5>
                                         <p className="text-sm text-neutral-600 leading-relaxed">
-                                            <span className="font-bold">Videopoema</span> inspirado no imaginário fantástico nordestino e nas narrativas de lobismulheres. Estética lunar
+                                            <span className="font-bold">Videopoema</span> inspirado no imaginário fantástico nordestino e nas narrativas de lobisomens e lobismulheres.
                                         </p>
                                     </a>
 
@@ -419,7 +427,7 @@
                                         </div>
                                         <h5 className="font-bold text-lg mb-2 uppercase">Hamilton</h5>
                                         <p className="text-sm text-neutral-600 leading-relaxed">
-                                            Puzzle casual publicado na <span className="font-bold">Play Store</span>, explorando design minimalista e mecânicas compactas
+                                            Puzzle casual publicado na <span className="font-bold">Play Store</span> que explora design minimalista e mecânicas compactas.
                                         </p>
                                     </a>
 
@@ -435,7 +443,7 @@
                                         </div>
                                         <h5 className="font-bold text-lg mb-2 uppercase">Sina de Siá</h5>
                                         <p className="text-sm text-neutral-600 leading-relaxed">
-                                            <span className="font-bold">Metroidvania</span> inspirado na estética do cordel, com narrativa sobre luta, memória e imaginário popular
+                                            <span className="font-bold">Metroidvania</span> inspirado na estética do cordel, com narrativa sobre luta, memória e imaginário popular.
                                         </p>
                                     </a>
 
@@ -445,8 +453,8 @@
                     </section>
 
                     {/* Editais e Apoios */}
-                    <section className="bg-white py-24 px-6 border-t-2 border-black">
-                        <div className="max-w-6xl mx-auto">
+                    <section className="bg-white py-24 border-t-2 border-black">
+                        <div className="max-w-6xl mx-auto px-6">
                             <h3 className="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter flex items-center gap-4">
                                 <span className="w-6 h-6 md:w-8 md:h-8 bg-black block shrink-0"></span> Editais e Apoios
                             </h3>
@@ -464,61 +472,77 @@
                     </section>
 
                     {/* Exposições e Circulação */}
-                    <section className="bg-neutral-900 text-neutral-200 py-24 px-6 border-y-2 border-black">
-                        <div className="max-w-6xl mx-auto">
+                    <section className="bg-neutral-900 text-neutral-200 py-24 border-y-2 border-black">
+                        <div className="max-w-6xl mx-auto px-6">
                             <h3 className="text-white text-3xl md:text-5xl font-black uppercase tracking-tighter mb-16 flex items-center gap-4">
                                 <Moon size={32} /> Exposições e Circulação
                             </h3>
-                            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+                            <p className="text-neutral-400 max-w-3xl mb-12 leading-relaxed">
+                                As obras do estúdio foram apresentadas em eventos culturais, feiras de tecnologia e atividades educativas em escolas públicas e espaços comunitários de Fortaleza.
+                            </p>
+                            <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
                                 {/* SANA */}
-                                <div className="bg-neutral-800 border-2 border-neutral-700 p-4 group hover:border-white transition-all flex flex-col">
-                                    <div className="aspect-[16/9] bg-black mb-6 overflow-hidden border-2 border-transparent group-hover:border-white transition-all">
-                                        <img src="./images/portfolio/circulacao_sana.png" alt="SANA - Fortaleza" onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div class=\'w-full h-full flex flex-col items-center justify-center text-xs p-4 text-center text-neutral-500 font-mono\'>[foto SANA]</div>' }} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                                <div className="bg-neutral-800 border-2 border-neutral-700 p-6 group hover:border-white transition-all flex flex-col justify-between">
+                                    <div>
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <span className="bg-white text-black px-1.5 py-0.5 text-xs font-bold font-mono shadow-sm">2026</span>
+                                            <strong className="text-white font-sans text-xl leading-none tracking-tight">SANA — Fortaleza</strong>
+                                        </div>
+                                        <p className="text-neutral-400 text-sm leading-relaxed mb-6 group-hover:text-neutral-300 transition-colors">Apresentação pública da demo do jogo Vem, Exu na Sala Black Heroes, com mediação e conversa com o público sobre o processo de criação.</p>
                                     </div>
-                                    <div className="flex gap-4 px-2 pb-2 items-start mt-2">
-                                        <span className="bg-white text-black px-2 py-1 text-sm font-bold font-mono h-max shrink-0 shadow-sm">2026</span>
-                                        <div>
-                                            <strong className="text-white block font-sans text-xl mb-2">SANA — Fortaleza</strong>
-                                            <span className="text-neutral-300">Exibição pública do jogo Vem, Exu</span>
+                                    <div className="grid grid-cols-3 gap-2 mt-4">
+                                        <div className="aspect-square bg-black overflow-hidden border border-neutral-600 group-hover:border-neutral-500 transition-all">
+                                            <img src="./images/records/sana_2026_1_01.jpeg" alt="Registro SANA 1" onClick={() => setSelectedImage('./images/records/sana_2026_1_01.jpeg')} className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 hover:scale-110 transition-all duration-500 cursor-zoom-in" />
+                                        </div>
+                                        <div className="aspect-square bg-black overflow-hidden border border-neutral-600 group-hover:border-neutral-500 transition-all">
+                                            <img src="./images/records/sana_2026_1_02.jpeg" alt="Registro SANA 2" onClick={() => setSelectedImage('./images/records/sana_2026_1_02.jpeg')} className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 hover:scale-110 transition-all duration-500 cursor-zoom-in" />
+                                        </div>
+                                        <div className="aspect-square bg-black overflow-hidden border border-neutral-600 group-hover:border-neutral-500 transition-all">
+                                            <img src="./images/records/sana_2026_1_03.jpeg" alt="Registro SANA 3" onClick={() => setSelectedImage('./images/records/sana_2026_1_03.jpeg')} className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 hover:scale-110 transition-all duration-500 cursor-zoom-in" />
                                         </div>
                                     </div>
                                 </div>
+                                
                                 {/* Feira do Conhecimento */}
-                                <div className="bg-neutral-800 border-2 border-neutral-700 p-4 group hover:border-white transition-all flex flex-col">
-                                    <div className="aspect-[16/9] bg-black mb-6 overflow-hidden border-2 border-transparent group-hover:border-white transition-all">
-                                        <img src="./images/portfolio/circulacao_feira.png" alt="Feira do Conhecimento" onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div class=\'w-full h-full flex flex-col items-center justify-center text-xs p-4 text-center text-neutral-500 font-mono\'>[foto Feira do Conhecimento]</div>' }} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                                <div className="bg-neutral-800 border-2 border-neutral-700 p-6 group hover:border-white transition-all flex flex-col justify-between">
+                                    <div>
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <span className="bg-white text-black px-1.5 py-0.5 text-xs font-bold font-mono shadow-sm">2025</span>
+                                            <strong className="text-white font-sans text-xl leading-none tracking-tight">Feira do Conhecimento — Fortaleza</strong>
+                                        </div>
+                                        <p className="text-neutral-400 text-sm leading-relaxed mb-6 group-hover:text-neutral-300 transition-colors">Apresentação pública do protótipo de Vem, Exu para visitantes do evento.</p>
                                     </div>
-                                    <div className="flex gap-4 px-2 pb-2 items-start mt-2">
-                                        <span className="bg-white text-black px-2 py-1 text-sm font-bold font-mono h-max shrink-0 shadow-sm">2025</span>
-                                        <div>
-                                            <strong className="text-white block font-sans text-xl mb-2">Feira do Conhecimento — Fortaleza</strong>
-                                            <span className="text-neutral-300">Apresentação pública do jogo Vem, Exu para visitantes do evento</span>
+                                    <div className="grid grid-cols-3 gap-2 mt-4">
+                                        <div className="aspect-square bg-black overflow-hidden border border-neutral-600 group-hover:border-neutral-500 transition-all">
+                                            <img src="./images/records/feira_do_conhecimento_01.jpeg" alt="Registro Feira 1" onClick={() => setSelectedImage('./images/records/feira_do_conhecimento_01.jpeg')} className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 hover:scale-110 transition-all duration-500 cursor-zoom-in" />
+                                        </div>
+                                        <div className="aspect-square bg-black overflow-hidden border border-neutral-600 group-hover:border-neutral-500 transition-all">
+                                            <img src="./images/records/feira_do_conhecimento_02.jpeg" alt="Registro Feira 2" onClick={() => setSelectedImage('./images/records/feira_do_conhecimento_02.jpeg')} className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 hover:scale-110 transition-all duration-500 cursor-zoom-in" />
+                                        </div>
+                                        <div className="aspect-square bg-black overflow-hidden border border-neutral-600 group-hover:border-neutral-500 transition-all">
+                                            <img src="./images/records/feira_do_conhecimento_03.jpeg" alt="Registro Feira 3" onClick={() => setSelectedImage('./images/records/feira_do_conhecimento_03.jpeg')} className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 hover:scale-110 transition-all duration-500 cursor-zoom-in" />
                                         </div>
                                     </div>
                                 </div>
+                                
                                 {/* Escolas */}
-                                <div className="bg-neutral-800 border-2 border-neutral-700 p-4 group hover:border-white transition-all flex flex-col">
-                                    <div className="aspect-[16/9] bg-black mb-6 overflow-hidden border-2 border-transparent group-hover:border-white transition-all">
-                                        <img src="./images/portfolio/circulacao_escolas.png" alt="Escolas Municipais de Fortaleza" onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div class=\'w-full h-full flex flex-col items-center justify-center text-xs p-4 text-center text-neutral-500 font-mono\'>[foto Escolas]</div>' }} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                                    </div>
-                                    <div className="flex gap-4 px-2 pb-2 items-start mt-2">
-                                        <span className="bg-white text-black px-2 py-1 text-sm font-bold font-mono h-max shrink-0 shadow-sm">2025–2026</span>
-                                        <div>
-                                            <strong className="text-white block font-sans text-xl mb-2">Escolas Municipais de Fortaleza</strong>
-                                            <span className="text-neutral-300">Apresentações educativas sobre criação de jogos digitais e demonstração do jogo Vem, Exu para estudantes</span>
+                                <div className="bg-neutral-800 border-2 border-neutral-700 p-6 group hover:border-white transition-all flex flex-col justify-between">
+                                    <div>
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <span className="bg-white text-black px-1.5 py-0.5 text-xs font-bold font-mono shadow-sm">2025–2026</span>
+                                            <strong className="text-white font-sans text-xl leading-none tracking-tight">Escolas Municipais de Fortaleza</strong>
                                         </div>
+                                        <p className="text-neutral-400 text-sm leading-relaxed mb-6 group-hover:text-neutral-300 transition-colors">Atividades educativas e demonstração do jogo Vem, Exu em escolas públicas.</p>
                                     </div>
-                                </div>
-                                {/* BNB */}
-                                <div className="bg-neutral-800 border-2 border-neutral-700 p-4 group hover:border-white transition-all flex flex-col">
-                                     <div className="aspect-[16/9] bg-black mb-6 overflow-hidden border-2 border-transparent group-hover:border-white transition-all">
-                                        <img src="./images/portfolio/circulacao_bnb.png" alt="Centros Culturais BNB" onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = '<div class=\'w-full h-full flex flex-col items-center justify-center text-xs p-4 text-center text-neutral-500 font-mono\'>[foto BNB]</div>' }} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                                    </div>
-                                    <div className="flex gap-4 px-2 pb-2 items-start mt-2">
-                                        <span className="bg-white text-black px-2 py-1 text-sm font-bold font-mono h-max shrink-0 shadow-sm">2026</span>
-                                        <div>
-                                            <strong className="text-white block font-sans text-xl mb-2">Centros Culturais BNB</strong>
-                                            <span className="text-neutral-300">Projeto aprovado em edital — desenvolvimento da instalação Raiar</span>
+                                    <div className="grid grid-cols-3 gap-2 mt-4">
+                                        <div className="aspect-square bg-black overflow-hidden border border-neutral-600 group-hover:border-neutral-500 transition-all">
+                                            <img src="./images/records/escola_torres_de_melo_01.jpg" alt="Registro Escolas 1" onClick={() => setSelectedImage('./images/records/escola_torres_de_melo_01.jpg')} className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 hover:scale-110 transition-all duration-500 cursor-zoom-in" />
+                                        </div>
+                                        <div className="aspect-square bg-black overflow-hidden border border-neutral-600 group-hover:border-neutral-500 transition-all">
+                                            <img src="./images/records/nac_passare_01.jpg" alt="Registro Escolas 2" onClick={() => setSelectedImage('./images/records/nac_passare_01.jpg')} className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 hover:scale-110 transition-all duration-500 cursor-zoom-in" />
+                                        </div>
+                                        <div className="aspect-square bg-black overflow-hidden border border-neutral-600 group-hover:border-neutral-500 transition-all">
+                                            <img src="./images/records/nac_passare_02.jpg" alt="Registro Escolas 3" onClick={() => setSelectedImage('./images/records/nac_passare_02.jpg')} className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 hover:scale-110 transition-all duration-500 cursor-zoom-in" />
                                         </div>
                                     </div>
                                 </div>
@@ -527,8 +551,8 @@
                     </section>
 
                     {/* Pesquisa e Temas & Processos e Tecnologias */}
-                    <section className="bg-neutral-100 text-neutral-900 py-24 px-6 border-b-2 border-black">
-                        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20">
+                    <section className="bg-neutral-100 text-neutral-900 py-24 border-b-2 border-black">
+                        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20">
                             {/* Pesquisa e Temas */}
                             <div>
                                 <h3 className="text-2xl font-black uppercase tracking-widest mb-10 flex items-center gap-3">
@@ -536,10 +560,10 @@
                                </h3>
                                 <ul className="space-y-4 font-mono text-sm text-neutral-800">
                                     <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Memória afetiva da infância</li>
-                                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Cultura popular cearense</li>
-                                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Território e narrativa interativa</li>
-                                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Minimalismo visual e silhuetas</li>
+                                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Cultura popular</li>
+                                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Território e narrativa</li>
                                     <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Acessibilidade visual em jogos digitais</li>
+                                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Minimalismo visual e silhuetas</li>
                                 </ul>
                             </div>
                             {/* Processos e Tecnologias */}
@@ -548,7 +572,7 @@
                                     <Code size={24} /> Processos e Tecnologias
                                 </h3>
                                 <ul className="space-y-4 font-mono text-sm text-neutral-800">
-                                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Narrativa interativa</li>
+                                    <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Design de narrativa interativa</li>
                                     <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Design minimalista de interface</li>
                                     <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Arte generativa</li>
                                     <li className="flex items-center gap-2"><div className="w-1 h-1 bg-black shrink-0"></div> Godot 4 (GDScript) • Unity (C#)</li>
@@ -559,14 +583,18 @@
                     </section>
 
                     {/* About & Contact */}
-                    <section id="sobre" className="py-24 px-6 max-w-4xl mx-auto">
-                        <div className="bg-white border-2 border-black p-8 md:p-12 shadow-hard-lg">
-                            <h2 className="text-4xl font-black mb-8 uppercase tracking-tighter">Sobre Mim</h2>
+                    <section id="sobre" className="py-24 border-t-2 border-black">
+                        <div className="max-w-6xl mx-auto px-6">
+                            <div className="max-w-4xl mx-auto bg-white border-2 border-black p-8 md:p-12 shadow-hard-lg">
+                                <h2 className="text-4xl font-black mb-8 uppercase tracking-tighter">Sobre Mim</h2>
                             <p className="mb-6 leading-relaxed text-neutral-800 text-lg">
-                                Sou Michael Feitosa. Fundador do <strong>Tejo Estúdio</strong>, coletivo dedicado à criação de jogos autorais e arte digital em Fortaleza.
+                                Sou Michael Feitosa. Fundador do <strong>Tejo Estúdio</strong>, coletivo dedicado à criação de jogos autorais e arte digital interativa em Fortaleza, com projetos voltados à narrativa interativa e cultura digital.
                             </p>
                             <p className="mb-8 leading-relaxed text-neutral-700">
-                                Game designer, artista digital e desenvolvedor. A partir de 2023, <strong>direciono minha experiência técnica acumulada ao longo de uma década para o desenvolvimento de projetos autorais em jogos e arte digital por meio de editais públicos e circulação cultural</strong>, unindo rigor de engenharia, sensibilidade visual e investigação sobre território, memória e símbolos populares.
+                                Atuo como game designer, artista digital e desenvolvedor. Desde 2023 direciono minha experiência em desenvolvimento de software para a criação de projetos autorais em jogos digitais.
+                            </p>
+                            <p className="mb-8 leading-relaxed text-neutral-700">
+                                Meu trabalho combina rigor técnico, sensibilidade visual e investigação sobre memória, território e imaginários culturais.
                             </p>
 
                             <div className="mt-12 flex flex-col md:flex-row gap-8 pt-8 border-t-2 border-neutral-100">
@@ -597,11 +625,33 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
+                </section>
+
+                    {/* Modal/Lightbox */}
+                    {selectedImage && (
+                        <div 
+                            className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 cursor-zoom-out backdrop-blur-sm transition-all"
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            <button 
+                                className="absolute top-6 right-6 text-white hover:text-neutral-400 p-2 transition-colors z-[101]"
+                                onClick={() => setSelectedImage(null)}
+                            >
+                                <X size={32} />
+                            </button>
+                            <img 
+                                src={selectedImage} 
+                                alt="Imagem Ampliada" 
+                                className="max-w-full max-h-[90vh] object-contain shadow-2xl bg-black border border-white/10 relative z-50 cursor-auto"
+                                onClick={(e) => e.stopPropagation()}
+                            />
+                        </div>
+                    )}
 
                     {/* Footer */}
                     <footer className="bg-neutral-100 text-neutral-900 py-12 text-center text-xs font-mono border-t-2 border-neutral-200">
-                        <p className="font-bold">&copy; {new Date().getFullYear()} TEJO ESTÚDIO.</p>
+                        <p className="font-bold">&copy; {new Date().getFullYear()} TEJO ESTÚDIO — Fortaleza, Ceará.</p>
                     </footer>
                 </div>
             );
