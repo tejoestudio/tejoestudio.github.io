@@ -87,6 +87,14 @@
                 break-inside: auto;
             }
 
+            /* Impedir que o Footer pule sozinho para uma página em branco (famosa página viúva) */
+            footer {
+                page-break-before: avoid !important;
+                break-before: avoid !important;
+                margin-top: 1rem !important;
+                border-top: none !important;
+            }
+
             /* Bloco "Outros Experimentos" começar em nova página devido à grade horizontal */
             .pt-20.mt-20 {
                 page-break-before: always;
@@ -102,10 +110,22 @@
                 grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
                 align-items: start !important;
             }
+            .md\:col-span-4 { grid-column: span 4 / span 4 !important; }
             .md\:col-span-5 { grid-column: span 5 / span 5 !important; }
             .md\:col-span-7 { grid-column: span 7 / span 7 !important; }
+            .md\:col-span-8 { grid-column: span 8 / span 8 !important; }
             .md\:order-1 { order: 1 !important; }
             .md\:order-2 { order: 2 !important; }
+
+            /* Fix para o bloco de Contatos do Sobre não quebrar a coluna e isolar "Documentos" */
+            #sobre-contatos {
+                display: grid !important;
+                grid-template-columns: auto auto auto !important;
+                justify-content: space-between !important;
+                gap: 1rem !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
 
             /* Evitar textos importantes sendo fatiados ao meio horizontalmente */
             article,
@@ -118,6 +138,7 @@
 
             /* Garantir que containers proporcionais não estiquem absurdo empurrando texto */
             .aspect-\[3\/4\], 
+            .aspect-\[4\/5\],
             .aspect-video, 
             .aspect-square {
                 max-height: 35vh !important; 
@@ -182,7 +203,7 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState } = React;
+        const { useState, useEffect } = React;
         const { createRoot } = ReactDOM;
 
         // --- Icons (Inline SVGs to avoid external module dependencies) ---
@@ -206,6 +227,15 @@
         const Portfolio = () => {
             const [isMenuOpen, setIsMenuOpen] = useState(false);
             const [selectedImage, setSelectedImage] = useState(null);
+            const [isScrolled, setIsScrolled] = useState(false);
+
+            useEffect(() => {
+                const handleScroll = () => {
+                    setIsScrolled(window.scrollY > 50);
+                };
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
 
             const scrollToSection = (id) => {
                 const element = document.getElementById(id);
@@ -227,8 +257,8 @@
                 <div className="min-h-screen flex flex-col">
 
                     {/* Navigation */}
-                    <nav className="fixed top-0 left-0 w-full bg-neutral-50/95 backdrop-blur-sm z-50 border-b-2 border-neutral-900">
-                        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+                    <nav className={`fixed top-0 left-0 w-full bg-neutral-50/95 backdrop-blur-sm z-50 border-b-2 border-neutral-900 transition-all duration-300 ${isScrolled ? 'shadow-sm' : ''}`}>
+                        <div className={`max-w-6xl mx-auto px-6 flex justify-between items-center transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
                             <button 
                                 onClick={() => scrollToSection('home')} 
                                 className="flex items-center gap-3 group px-2 py-1 -ml-2 transition-all"
@@ -237,7 +267,7 @@
                                     src="./images/tejo_logo_black.png" 
                                     alt="Tejo Estúdio" 
                                     onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
-                                    className="h-12 md:h-16 w-auto object-contain"
+                                    className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-8 md:h-10' : 'h-16 md:h-20'}`}
                                 />
                                 <span className="hidden font-black text-xl tracking-tighter group-hover:bg-black group-hover:text-white px-1">TEJO ESTÚDIO</span>
                             </button>
@@ -500,11 +530,11 @@
                             </h3>
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div className="border-2 border-black p-8 bg-neutral-50 shadow-hard hover:shadow-hard-lg hover:-translate-y-1 transition-all group cursor-default">
-                                    <h4 className="font-bold text-xl mb-3 uppercase group-hover:bg-black group-hover:text-white w-max px-2 -ml-2 transition-colors">Lei Paulo Gustavo — Ceará, 2024</h4>
+                                    <h4 className="font-bold text-xl mb-3 uppercase group-hover:bg-black group-hover:text-white w-fit px-2 -ml-2 transition-colors">Lei Paulo Gustavo — Ceará, 2024</h4>
                                     <p className="text-neutral-700 text-lg">Desenvolvimento do jogo Vem, Exu</p>
                                 </div>
                                 <div className="border-2 border-black p-8 bg-neutral-50 shadow-hard hover:shadow-hard-lg hover:-translate-y-1 transition-all group cursor-default">
-                                    <h4 className="font-bold text-xl mb-3 uppercase group-hover:bg-black group-hover:text-white w-max px-2 -ml-2 transition-colors">Edital das Artes — Fortaleza, 2024</h4>
+                                    <h4 className="font-bold text-xl mb-3 uppercase group-hover:bg-black group-hover:text-white w-fit px-2 -ml-2 transition-colors">Edital das Artes — Fortaleza, 2024</h4>
                                     <p className="text-neutral-700 text-lg">Desenvolvimento da instalação Raiar</p>
                                 </div>
                             </div>
@@ -656,7 +686,7 @@
                                 </div>
                             </div>
 
-                            <div className="mt-12 flex flex-col md:flex-row gap-8 pt-8 border-t-2 border-neutral-100">
+                            <div id="sobre-contatos" className="mt-12 flex flex-col md:flex-row gap-8 pt-8 border-t-2 border-neutral-100">
                                 <div className="flex-1" id="contato">
                                     <h3 className="font-bold mb-4 uppercase text-xs tracking-widest">Contato</h3>
                                     <a href="mailto:michaelrfeitosa@gmail.com" className="flex items-center gap-2 text-lg font-bold hover:underline mb-2">
@@ -678,7 +708,7 @@
 
                                 <div className="flex-1">
                                     <h3 className="font-bold mb-4 uppercase text-xs tracking-widest">Documentos</h3>
-                                    <a href="./docs/curriculo_michael_feitosa.pdf" download className="flex items-center gap-2 font-bold uppercase tracking-wide hover:bg-black hover:text-white border-2 border-black px-4 py-2 w-max transition-all">
+                                    <a href="./docs/curriculo_michael_feitosa.pdf" download className="flex items-center gap-2 font-bold uppercase tracking-wide hover:bg-black hover:text-white border-2 border-black px-4 py-3 whitespace-nowrap w-max transition-all">
                                         <Download size={16} /> Baixar Currículo
                                     </a>
                                 </div>
