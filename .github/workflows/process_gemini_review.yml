@@ -1,0 +1,15 @@
+name: Process Gemini Review
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  process-review:
+    uses: kaelfeitosa/tejo-shared/.github/workflows/process_gemini_review.yml@v1
+    secrets:
+      USER_PAT: ${{ secrets.USER_PAT }}

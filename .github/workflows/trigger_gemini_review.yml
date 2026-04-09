@@ -1,0 +1,14 @@
+name: Trigger Gemini Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  trigger-review:
+    uses: kaelfeitosa/tejo-shared/.github/workflows/trigger_gemini_review.yml@v1
+    secrets:
+      USER_PAT: ${{ secrets.USER_PAT }}
