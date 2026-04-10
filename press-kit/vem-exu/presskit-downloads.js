@@ -84,6 +84,14 @@
       extract(scope) {
         return [...scope.querySelectorAll('.pk-sticker-grid img')].map(img => img.src);
       }
+    },
+    events: {
+      selector: '[aria-labelledby="eventos-titulo"]',
+      folder: '09_events',
+      zipName: 'vem_exu_events.zip',
+      extract(scope) {
+        return [...scope.querySelectorAll('.pk-gallery img')].map(img => img.src);
+      }
     }
   };
 
