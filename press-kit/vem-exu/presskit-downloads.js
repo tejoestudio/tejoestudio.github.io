@@ -109,6 +109,17 @@
     return { name: filenameFromUrl(url), data: await res.arrayBuffer() };
   }
 
+  /** Fetch multiple files in batches to avoid browser/network limits */
+  async function fetchInBatches(urls, batchSize = 5) {
+    const results = [];
+    for (let i = 0; i < urls.length; i += batchSize) {
+      const batch = urls.slice(i, i + batchSize);
+      const batchResults = await Promise.all(batch.map(url => fetchFile(url)));
+      results.push(...batchResults);
+    }
+    return results;
+  }
+
   /** Get all URLs for a section by reading from the DOM */
   function getUrlsForSection(key) {
     const section = SECTIONS[key];
@@ -118,16 +129,28 @@
     return section.extract(scope).filter(Boolean);
   }
 
-  /** Set button loading state */
-  function setLoading(btn, loading) {
-    if (loading) {
-      btn.dataset.originalText = btn.textContent;
+  /** Set button state (loading, error, or idle) */
+  function setButtonState(btn, state) {
+    if (state === 'loading') {
+      if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent;
       btn.textContent = 'Preparando…';
       btn.classList.add('pk-download-loading');
+      btn.classList.remove('pk-download-error');
       btn.disabled = true;
+    } else if (state === 'error') {
+      btn.textContent = 'Erro!';
+      btn.classList.add('pk-download-error');
+      btn.classList.remove('pk-download-loading');
+      setTimeout(() => {
+        btn.textContent = btn.dataset.originalText || 'Tentar novamente';
+        btn.classList.remove('pk-download-error');
+        btn.disabled = false;
+      }, 3000);
     } else {
+      // Reset to idle
       btn.textContent = btn.dataset.originalText || btn.textContent;
       btn.classList.remove('pk-download-loading');
+      btn.classList.remove('pk-download-error');
       btn.disabled = false;
     }
   }
@@ -150,54 +173,51 @@
       return;
     }
 
-    setLoading(btn, true);
+    setButtonState(btn, 'loading');
     try {
       const zip = new JSZip();
-      const files = await Promise.all(urls.map(fetchFile));
+      const files = await fetchInBatches(urls, 5);
       files.forEach(f => zip.file(f.name, f.data));
       const blob = await zip.generateAsync({ type: 'blob' });
       saveAs(blob, section.zipName);
+      setButtonState(btn, 'idle');
     } catch (err) {
       console.error('Download failed:', err);
-      alert('Erro ao preparar o download. Tente novamente.');
-    } finally {
-      setLoading(btn, false);
+      setButtonState(btn, 'error');
     }
   }
 
   // ── Download: Full Press Kit ─────────────────────────────────────
 
   async function downloadFull(btn) {
-    setLoading(btn, true);
+    setButtonState(btn, 'loading');
     try {
       const zip = new JSZip();
+      const urlsToFetch = [];
 
-      // Collect all sections, organized in folders
-      const fetchPromises = [];
-
+      // Flatten all sections into a single queue for batching
       for (const [key, section] of Object.entries(SECTIONS)) {
         const urls = getUrlsForSection(key);
-        for (const url of urls) {
-          fetchPromises.push(
-            fetchFile(url).then(f => ({
-              folder: section.folder,
-              name: f.name,
-              data: f.data
-            }))
-          );
-        }
+        urls.forEach(url => {
+          urlsToFetch.push({ url, folder: section.folder });
+        });
       }
 
-      const allFiles = await Promise.all(fetchPromises);
-      allFiles.forEach(f => zip.file(`${f.folder}/${f.name}`, f.data));
+      // Process queue in chunks of 5
+      for (let i = 0; i < urlsToFetch.length; i += 5) {
+        const batch = urlsToFetch.slice(i, i + 5);
+        const batchFiles = await Promise.all(
+          batch.map(item => fetchFile(item.url).then(f => ({ ...f, folder: item.folder })))
+        );
+        batchFiles.forEach(f => zip.file(`${f.folder}/${f.name}`, f.data));
+      }
 
       const blob = await zip.generateAsync({ type: 'blob' });
       saveAs(blob, 'vem_exu_presskit_full.zip');
+      setButtonState(btn, 'idle');
     } catch (err) {
       console.error('Full download failed:', err);
-      alert('Erro ao preparar o download completo. Tente novamente.');
-    } finally {
-      setLoading(btn, false);
+      setButtonState(btn, 'error');
     }
   }
 

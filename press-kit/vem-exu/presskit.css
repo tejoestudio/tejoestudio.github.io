@@ -248,7 +248,7 @@ blockquote {
   width: 100%;
   aspect-ratio: 1 / 1.35;
   object-fit: cover;
-  filter: none !important;
+  filter: none;
 }
 
 .pk-hero-figure:hover {
@@ -425,6 +425,19 @@ button[data-download]:active {
   pointer-events: none;
 }
 
+.pk-download-error {
+  background: var(--pk-accent) !important;
+  color: #fff !important;
+  border-color: var(--pk-accent) !important;
+  animation: pk-shake 0.4s ease-in-out;
+}
+
+@keyframes pk-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
 .pk-video-frame {
   margin: 0;
 }
@@ -475,7 +488,7 @@ button[data-download]:active {
   height: 100%;
   object-fit: cover;
   border: 2px solid var(--pk-border);
-  filter: none !important;
+  filter: none;
 }
 
 .pk-gallery-screens img {
@@ -676,13 +689,13 @@ button[data-download]:active {
 
 .pk-gallery-events img {
   aspect-ratio: 1 / 1;
-  filter: grayscale(100%) contrast(1.2) brightness(0.8) !important;
+  filter: grayscale(100%) contrast(1.2) brightness(0.8);
   opacity: 0.8;
   transition: all 0.3s ease-out;
 }
 
 .pk-gallery-events figure:hover img {
-  filter: grayscale(0%) contrast(1) brightness(1) !important;
+  filter: grayscale(0%) contrast(1) brightness(1);
   opacity: 1;
 }
 
