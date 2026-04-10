@@ -30,6 +30,15 @@
         scroll-behavior: smooth;
       }
 
+      /* Utilitários para sombras duras (Brutalismo/Xilogravura) */
+      .shadow-hard {
+        box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+      }
+
+      .shadow-hard-lg {
+        box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+      }
+
       /* Otimizações para Impressão / PDF Digital */
       @media print {
         * {
@@ -324,15 +333,6 @@
       const Portfolio = () => {
         const [isMenuOpen, setIsMenuOpen] = useState(false);
         const [selectedImage, setSelectedImage] = useState(null);
-        const [isScrolled, setIsScrolled] = useState(false);
-
-        useEffect(() => {
-          const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-          };
-          window.addEventListener("scroll", handleScroll);
-          return () => window.removeEventListener("scroll", handleScroll);
-        }, []);
 
         const scrollToSection = (id) => {
           const element = document.getElementById(id);
@@ -354,28 +354,17 @@
           <div className="min-h-screen flex flex-col">
             {/* Navigation */}
             <nav
-              className={`fixed top-0 left-0 w-full bg-neutral-50/95 backdrop-blur-sm z-50 border-b-2 border-neutral-900 transition-all duration-300 ${isScrolled ? "shadow-sm" : ""}`}
+              className="fixed top-0 left-0 w-full bg-neutral-50/95 backdrop-blur-sm z-50 border-b-2 border-neutral-900"
             >
               <div
-                className={`max-w-6xl mx-auto px-6 flex justify-between items-center transition-all duration-300 ${isScrolled ? "py-2" : "py-4"}`}
+                className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
               >
-                <button
+                <div
+                  className="text-xl font-black tracking-tighter cursor-pointer border-2 border-black bg-white text-black px-2 py-1 hover:bg-black hover:text-white transition-colors"
                   onClick={() => scrollToSection("home")}
-                  className="flex items-center gap-3 group px-2 py-1 -ml-2 transition-all"
                 >
-                  <img
-                    src="./images/tejo_logo_black.png"
-                    alt="Tejo Estúdio"
-                    onError={(e) => {
-                      e.target.style.display = "none";
-                      e.target.nextSibling.style.display = "block";
-                    }}
-                    className={`w-auto object-contain transition-all duration-300 ${isScrolled ? "h-8 md:h-10" : "h-16 md:h-20"}`}
-                  />
-                  <span className="hidden font-black text-xl tracking-tighter group-hover:bg-black group-hover:text-white px-1">
-                    TEJO ESTÚDIO
-                  </span>
-                </button>
+                  MF.
+                </div>
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex gap-8">
@@ -420,7 +409,7 @@
               id="home"
               className="pt-32 pb-20 px-6 max-w-6xl mx-auto min-h-[85vh] flex flex-col justify-center"
             >
-              <h1 className="md:text-9xl mb-6 leading-[0.85]">
+              <h1 className="text-6xl md:text-9xl font-black tracking-tighter mb-6 leading-[0.85]">
                 MICHAEL
                 <br />
                 FEITOSA
@@ -434,21 +423,22 @@
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <button
+                <a
+                  href="#projetos"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection("projetos");
                   }}
-                  className="primary group"
+                  className="group flex items-center gap-2 bg-white text-black border-2 border-black px-8 py-4 font-bold hover:bg-black hover:text-white hover:shadow-hard transition-all"
                 >
                   Ver Projetos{" "}
                   <MoveRight className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
                 <a
                   href="https://kaelfeitosa.itch.io"
                   target="_blank"
                   rel="noreferrer"
-                  className="tejo-btn"
+                  className="flex items-center gap-2 bg-white text-black border-2 border-black px-8 py-4 font-bold hover:bg-black hover:text-white hover:shadow-hard transition-all"
                 >
                   <Gamepad2 size={20} /> Itch.io
                 </a>
@@ -610,7 +600,7 @@
                       href="https://bit.ly/vemexu"
                       target="_blank"
                       rel="noreferrer"
-                      className="tejo-btn"
+                      className="inline-flex items-center gap-2 font-bold border-2 border-black bg-white px-4 py-2 hover:bg-black hover:text-white transition-all w-max shadow-hard hover:translate-x-1 hover:-translate-y-1"
                     >
                       Jogar Demo <ExternalLink size={16} />
                     </a>
@@ -1121,7 +1111,7 @@
                       <a
                         href="./docs/curriculo_michael_feitosa.pdf"
                         download
-                        className="tejo-btn"
+                        className="flex items-center gap-2 font-bold uppercase tracking-wide hover:bg-black hover:text-white border-2 border-black px-4 py-2 w-max transition-all shadow-hard hover:translate-x-1 hover:-translate-y-1"
                       >
                         <Download size={16} /> Currículo
                       </a>
@@ -1153,11 +1143,14 @@
             )}
 
             {/* Footer */}
-            <footer className="bg-neutral-100 text-neutral-900 py-12 text-center text-xs font-mono border-t-2 border-neutral-200">
-              <p className="font-bold">
-                &copy; {new Date().getFullYear()} TEJO ESTÚDIO — Fortaleza,
-                Ceará.
-              </p>
+            <footer className="footer-site bg-neutral-100/40 py-5 px-4 text-center text-[11px] font-mono border-t-2 border-neutral-200 mt-4">
+              <div className="flex flex-col items-center justify-center gap-2 max-w-4xl mx-auto">
+                <img src="images/tejo_logo_black.png" alt="Tejo Estúdio" className="h-24 w-auto opacity-90 mb-1" />
+                <p className="text-neutral-900 leading-relaxed uppercase tracking-tight">
+                  Estúdio cearense de pequenos jogos entre arte e cultura brasileira.
+                  <span className="text-neutral-400 ml-2">Fortaleza, Ceará. &copy; {new Date().getFullYear()}</span>
+                </p>
+              </div>
             </footer>
           </div>
         );
