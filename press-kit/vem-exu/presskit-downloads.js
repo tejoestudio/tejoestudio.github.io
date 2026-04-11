@@ -109,14 +109,30 @@
     return { name: filenameFromUrl(url), data: await res.arrayBuffer() };
   }
 
-  /** Fetch multiple files in batches to avoid browser/network limits */
-  async function fetchInBatches(urls, batchSize = 5) {
-    const results = [];
-    for (let i = 0; i < urls.length; i += batchSize) {
-      const batch = urls.slice(i, i + batchSize);
-      const batchResults = await Promise.all(batch.map(url => fetchFile(url)));
-      results.push(...batchResults);
+  /**
+   * Process multiple tasks in parallel with a limit (sliding window).
+   * Default task is fetchFile(url).
+   */
+  async function fetchInBatches(items, limit = 5, task = fetchFile) {
+    const results = new Array(items.length);
+    let i = 0;
+    let hasError = false;
+
+    async function worker() {
+      while (i < items.length && !hasError) {
+        const index = i++;
+        try {
+          results[index] = await task(items[index]);
+        } catch (err) {
+          if (hasError) return;
+          hasError = true;
+          throw err;
+        }
+      }
     }
+
+    const workers = Array.from({ length: Math.min(Math.max(1, limit), items.length) }, () => worker());
+    await Promise.all(workers);
     return results;
   }
 
@@ -203,14 +219,12 @@
         });
       }
 
-      // Process queue in chunks of 5
-      for (let i = 0; i < urlsToFetch.length; i += 5) {
-        const batch = urlsToFetch.slice(i, i + 5);
-        const batchFiles = await Promise.all(
-          batch.map(item => fetchFile(item.url).then(f => ({ ...f, folder: item.folder })))
-        );
-        batchFiles.forEach(f => zip.file(`${f.folder}/${f.name}`, f.data));
-      }
+      // Process queue in parallel with a limit
+      const batchFiles = await fetchInBatches(urlsToFetch, 5, async (item) => {
+        const file = await fetchFile(item.url);
+        return { ...file, folder: item.folder };
+      });
+      batchFiles.forEach(f => zip.file(`${f.folder}/${f.name}`, f.data));
 
       const blob = await zip.generateAsync({ type: 'blob' });
       saveAs(blob, 'vem_exu_presskit_full.zip');
