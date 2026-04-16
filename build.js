@@ -3,14 +3,19 @@ const path = require('path');
 const Handlebars = require('handlebars');
 
 try {
-  const localesPath = path.join(__dirname, 'locales');
+  const srcPath = path.join(__dirname, 'src');
+  const localesPath = path.join(srcPath, 'locales');
+  const templatesPath = path.join(srcPath, 'templates');
+  const staticPath = path.join(srcPath, 'static');
+  const distDir = path.join(__dirname, 'dist');
+
   if (!fs.existsSync(localesPath)) {
-    throw new Error('locales/ directory does not exist. Build cannot proceed.');
+    throw new Error('src/locales/ directory does not exist. Build cannot proceed.');
   }
   const localeFiles = fs.readdirSync(localesPath).filter(file => file.endsWith('.json'));
 
   if (localeFiles.length === 0) {
-    throw new Error('No locale JSON files found in locales/ directory. Build cannot proceed.');
+    throw new Error('No locale JSON files found in src/locales/ directory. Build cannot proceed.');
   }
 
   const locales = {};
@@ -57,13 +62,10 @@ try {
     });
   }
 
-  loadTemplates(path.join(__dirname, 'templates'), path.join(__dirname, 'templates'));
+  loadTemplates(templatesPath, templatesPath);
 
   const pageConfigs = Object.keys(templates).map(templateKey => {
-    // Map template path 'press-kit/vem-exu/index.hbs' -> 'press-kit/vem-exu/index.html'
     const baseOutputPath = templateKey.replace(/\.hbs$/, '.html');
-
-    // Map canonical path 'press-kit/vem-exu/index.html' -> 'press-kit/vem-exu/'
     let canonicalBase = baseOutputPath.replace(/index\.html$/, '');
 
     return {
@@ -73,12 +75,20 @@ try {
     };
   });
 
-  // Clean dist directory before generating to prevent stale files
-  const distDir = path.join(__dirname, 'dist');
+  // Clean dist directory before generating
   if (fs.existsSync(distDir)) {
     fs.rmSync(distDir, { recursive: true, force: true });
   }
   fs.mkdirSync(distDir, { recursive: true });
+
+  // Copy static assets
+  if (fs.existsSync(staticPath)) {
+    fs.cpSync(staticPath, distDir, { recursive: true });
+    console.log("Static assets copied to dist/");
+  }
+
+  // Create .nojekyll to prevent GitHub Pages from ignoring files starting with underscore
+  fs.writeFileSync(path.join(distDir, '.nojekyll'), '');
 
   const pages = [];
 
@@ -87,13 +97,8 @@ try {
     SITE_URL: (process.env.SITE_URL || '/').replace(/\/$/, '') + '/'
   };
 
-  // Assumes all non-default locales map directly to their lang folder (e.g. 'en' -> '/en/')
   const availableLangs = Object.keys(locales);
 
-  /**
-   * Calculates the relative path to the root from a given file path.
-   * e.g. 'index.html' -> './', 'en/index.html' -> '../', 'press-kit/vem-exu/index.html' -> '../../'
-   */
   function getRelativePath(outputPath) {
     const depth = outputPath.split('/').filter(Boolean).length - 1;
     return depth > 0 ? '../'.repeat(depth) : './';
@@ -106,7 +111,6 @@ try {
       const outputPath = `${langFolder}${config.baseOutputPath}`;
       const toRoot = getRelativePath(outputPath);
 
-      // Calculate alternative languages for the switcher
       const otherLangs = availableLangs
         .filter(l => l !== lang)
         .map(otherLang => {

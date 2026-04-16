@@ -1,23 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{{lang}}">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacidade | Tejo Estúdio</title>
-  <link rel="icon" type="image/png" href="images/tejo_icon.png">
+  <link rel="icon" type="image/png" href="{{{base_path}}}images/tejo_icon.png">
   <meta name="description" content="Política de privacidade e informações sobre coleta de dados do Tejo Estúdio.">
   <meta name="robots" content="noindex">
 
   <!-- Novos Estilos Base do Tejo Estúdio -->
-  <link rel="stylesheet" href="css/tejo-base.css">
-  <link rel="stylesheet" href="css/tejo-brands.css">
+  <link rel="stylesheet" href="{{{base_path}}}css/tejo-base.css">
+  <link rel="stylesheet" href="{{{base_path}}}css/tejo-brands.css">
+  {{> partials/lang_redirect}}
 </head>
 
 <body>
+  <div class="tejo-lang-switcher-container">
+    {{#each other_langs}}
+    <a href="{{{link}}}" class="tejo-lang-switcher" aria-label="{{aria}}" onclick="if(window.tejoSetLang){ window.tejoSetLang('{{code}}'); return false; }">
+      {{label}}
+    </a>
+    {{/each}}
+  </div>
+
   <main class="tejo-linktree-container tejo-text-left">
     <nav>
-      <a href="index.html" aria-label="Voltar para a página inicial">← Voltar para a página principal</a>
+      <a href="{{{language_path}}}index.html" aria-label="Voltar para a página inicial">← Voltar para a página principal</a>
     </nav>
 
     <h1>Privacidade</h1>
@@ -36,7 +45,7 @@
     <section aria-labelledby="external-content-heading">
       <h2 id="external-content-heading">Conteúdo Externo</h2>
       <p>Este tipo de serviço permite visualizar conteúdo hospedado em plataformas externas diretamente nas páginas deste site e interagir com eles.</p>
-      <p>Este tipo de serviço ainda pode coletar dados de tráfego web para as páginas onde o serviço está instalado, mesmo quando os Usuários não o utilizam.</p>
+      <p>Este tipo de serviço ainda pode coletar dados de tráfego web para as páginas onde o serviço está instalado, even quando os Usuários não o utilizam.</p>
 
       <h3>Exemplo LLC</h3>
       <ul role="list">
@@ -58,11 +67,11 @@
     </section>
 
     <footer class="tejo-footer">
-      <img src="images/tejo_logo_black.png" alt="Tejo Estúdio" class="tejo-footer-logo">
+      <img src="{{{base_path}}}images/tejo_logo_black.png" alt="Tejo Estúdio" class="tejo-footer-logo">
       <div class="tejo-footer-content">
         <p>
-          Estúdio cearense de pequenos jogos entre arte e cultura brasileira.
-          <span class="tejo-footer-meta">Fortaleza, Ceará. &copy; 2026</span>
+          {{{index.footer}}}
+          <span class="tejo-footer-meta">{{{index.footer_meta}}}</span>
         </p>
       </div>
     </footer>
