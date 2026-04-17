@@ -704,3 +704,18 @@ button[data-download]:active {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+.pk-gallery-store {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pk-gallery-store img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .pk-gallery-store {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

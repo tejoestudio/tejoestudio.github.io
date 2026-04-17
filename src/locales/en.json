@@ -165,6 +165,10 @@
     "aria_nav_presskit": "Press kit navigation",
     "aria_main_actions": "Main actions",
     "nav_media": "Media",
+    "nav_identity": "Identity",
+    "nav_community": "Community",
+    "store_title": "Store Assets (Steam)",
+    "store_desc": "Official marketing images for the Steam store page. Available in high resolution.",
     "team": [
       {
         "name": "Michael Feitosa",
