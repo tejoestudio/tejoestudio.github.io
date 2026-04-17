@@ -16,22 +16,28 @@
   //   zipName   – filename for individual section download
   //   extract   – function that returns an array of URLs from the DOM scope
   const SECTIONS = {
+    keyart: {
+      selector: '[aria-labelledby="keyart-titulo"]',
+      folder: '01_media/keyart',
+      zipName: 'vem_exu_keyart.zip',
+      extract(scope) {
+        return [...scope.querySelectorAll('.pk-gallery img')].map(img => img.src);
+      }
+    },
     trailer: {
       selector: '[aria-labelledby="trailer-titulo"]',
-      folder: '02_trailer',
+      folder: '01_media/videos',
       zipName: 'vem_exu_trailer.zip',
       extract(scope) {
         const urls = [];
-        // video source elements
         scope.querySelectorAll('video source').forEach(s => urls.push(s.src));
-        // direct download links to mp4
         scope.querySelectorAll('a[download]').forEach(a => urls.push(a.href));
         return [...new Set(urls)];
       }
     },
     screenshots: {
       selector: '[aria-labelledby="screenshots-titulo"]',
-      folder: '03_screenshots',
+      folder: '01_media/screenshots',
       zipName: 'vem_exu_screenshots.zip',
       extract(scope) {
         return [...scope.querySelectorAll('.pk-gallery img')].map(img => img.src);
@@ -39,47 +45,49 @@
     },
     gifs: {
       selector: '[aria-labelledby="gifs-titulo"]',
-      folder: '06_gifs',
-      zipName: 'vem_exu_gifs.zip',
-      extract(scope) {
-        return [...scope.querySelectorAll('.pk-gallery img')].map(img => img.src);
-      }
-    },
-    logos: {
-      selector: '[aria-labelledby="logos-titulo"]',
-      folder: '04_logos',
-      zipName: 'vem_exu_logos.zip',
-      extract(scope) {
-        return [...scope.querySelectorAll('.pk-gallery img')].map(img => img.src);
-      }
-    },
-    keyart: {
-      selector: '[aria-labelledby="keyart-titulo"]',
-      folder: '01_keyart',
-      zipName: 'vem_exu_keyart.zip',
-      extract(scope) {
-        return [...scope.querySelectorAll('.pk-gallery img')].map(img => img.src);
-      }
-    },
-    characters: {
-      selector: '[aria-labelledby="personagens-titulo"]',
-      folder: '05_characters',
-      zipName: 'vem_exu_characters.zip',
+      folder: '01_media/animations',
+      zipName: 'vem_exu_animations.zip',
       extract(scope) {
         return [...scope.querySelectorAll('.pk-gallery img')].map(img => img.src);
       }
     },
     clips: {
       selector: '[aria-labelledby="clips-titulo"]',
-      folder: '07_clips',
+      folder: '01_media/videos',
       zipName: 'vem_exu_clips.zip',
       extract(scope) {
         return [...scope.querySelectorAll('video source')].map(s => s.src);
       }
     },
+    logos: {
+      selector: '[aria-labelledby="logos-titulo"]',
+      folder: '02_branding/logos',
+      zipName: 'vem_exu_logos.zip',
+      extract(scope) {
+        return [...scope.querySelectorAll('.pk-gallery img')].map(img => img.src);
+      }
+    },
+    characters: {
+      selector: '[aria-labelledby="personagens-titulo"]',
+      folder: '02_branding/characters',
+      zipName: 'vem_exu_characters.zip',
+      extract(scope) {
+        return [...scope.querySelectorAll('.pk-gallery img')].map(img => img.src);
+      }
+    },
+    store: {
+      selector: '[aria-labelledby="branding"]', // Fallback or new section
+      folder: '02_branding/store',
+      zipName: 'vem_exu_store_assets.zip',
+      extract(scope) {
+        // This will be used when we add the Store section to the UI.
+        // For now, it's prepared.
+        return [...scope.querySelectorAll('.pk-gallery-store img')].map(img => img.src);
+      }
+    },
     stickers: {
       selector: '#extras',
-      folder: '08_stickers',
+      folder: '03_community/stickers',
       zipName: 'vem_exu_stickers.zip',
       extract(scope) {
         return [...scope.querySelectorAll('.pk-sticker-grid img')].map(img => img.src);
@@ -87,7 +95,7 @@
     },
     events: {
       selector: '[aria-labelledby="eventos-titulo"]',
-      folder: '09_events',
+      folder: '03_community/events',
       zipName: 'vem_exu_events.zip',
       extract(scope) {
         return [...scope.querySelectorAll('.pk-gallery img')].map(img => img.src);
