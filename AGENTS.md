@@ -1,4 +1,20 @@
-# Tejo Estúdio - Guidelines for AI and Developers
+# Tejo Estúdio
+
+> Institutional website, linktree and press kits for Estúdio Tejo. Brutalist visual identity, focused on simplicity and accessibility.
+> Stack: Handlebars, vanilla CSS (tejo-base.css), Node.js (build.js), i18n JSON.
+
+## Workspace
+
+| Repository | What it is | Contribution |
+|---|---|---|
+| `../exu/` | Narrative game "Vem, Exu" (Godot 4.6) | Original game assets and current development context |
+| `../tejoestudio/` | Press kits, promotional assets — gifs, videos, screenshots, trailers (Handlebars) | Web showcase for all projects; reusable brutalist visual identity |
+| `../tejo-estudio-cerebro/` | Creative docs, grant applications, project context and scripts (Markdown) | Narrative briefings and cultural proposals |
+| `../tiu-automator/` | Social media automation and outreach (Node.js) | Publishing and press prospecting for all studio projects |
+
+---
+
+# Guidelines for AI and Developers
 
 This file contains strict architectural and styling rules that must be followed when modifying this repository.
 
@@ -19,4 +35,4 @@ This file contains strict architectural and styling rules that must be followed 
 ## Media and Accessibility Assets
 * When using or referencing any images, videos, or animations, always consult src/static/assets_meta.json.
 * This file acts as a manifest and contains the complete, detailed accessibility descriptions (alt texts) for every media asset in the project.
-* Do not attempt to guess file contents from their names or read binary metadata directly; the ssets_meta.json is the single source of truth for semantic descriptions and lt properties.
+* Do not attempt to guess file contents from their names or read binary metadata directly; the assets_meta.json is the single source of truth for semantic descriptions and alt properties.
