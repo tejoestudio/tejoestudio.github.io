@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Modern CSS Reset
    ========================================================================== */
 
@@ -715,3 +715,125 @@ textarea:focus {
   /* Convert all SVG colors to solid black */
   filter: grayscale(100%) brightness(0);
 }
+
+/* ==========================================================================
+   Pitch Deck Presentation (Scroll Snap)
+   ========================================================================== */
+html.tejo-deck-html, html.tejo-deck-html body {
+  overflow: hidden;
+}
+
+.tejo-deck {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+}
+
+.tejo-deck .tejo-slide {
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.tejo-deck .tejo-slide-content {
+  max-width: 64rem; /* 1024px */
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tejo-deck h1 {
+  font-size: 4.5rem;
+  margin-bottom: 1rem;
+}
+
+.tejo-deck h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.tejo-deck p {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tejo-deck .tejo-slide-hero img {
+  max-height: 45vh;
+  margin: 0 auto 2rem auto;
+  object-fit: contain;
+}
+
+.tejo-deck figure {
+  margin-bottom: 2rem;
+}
+
+.tejo-deck figure img {
+  max-height: 45vh;
+  object-fit: cover;
+}
+
+.tejo-deck .tejo-slide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tejo-deck-footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+
+@media print {
+  html.tejo-deck-html,
+  html.tejo-deck-html body,
+  .tejo-deck {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .tejo-deck-html body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .tejo-deck .tejo-slide {
+    height: 1080px !important;
+    width: 1920px !important;
+    page-break-after: always !important;
+    page-break-inside: avoid !important;
+    scroll-snap-align: none !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  .tejo-lang-switcher-container {
+    display: none !important;
+  }
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+}
+

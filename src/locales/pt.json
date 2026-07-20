@@ -339,6 +339,106 @@
     "alt_event_feira_02": "Feira 02",
     "alt_event_escola_01": "Escola 01"
   },
+  "vem_exu_pitch_deck": {
+    "title": "Vem, Exu! Pitch Deck",
+    "slide_cover": {
+      "month": "Janeiro 2027"
+    },
+    "slide_pitch": {
+      "pitch_1": "Vem, Exu é uma aventura narrativa curta onde emoções viram gameplay.",
+      "pitch_2": "Inspirado no conto <em>Exu Ficou Com Medo</em>, os jogadores experienciam raiva, memória e reconciliação através de interações táteis no lugar de diálogos."
+    },
+    "slide_game": {
+      "title": "O Jogo",
+      "p1": "Aventura",
+      "p2": "Narrativa",
+      "p3": "Puzzle",
+      "p4": "50 minutos",
+      "p5": "Steam + Android",
+      "p6": "Demo disponível"
+    },
+    "slide_story": {
+      "title": "História",
+      "p1": "Depois de perder sua arraia numa briga com o irmão, Exu adormece carregando sua raiva.",
+      "p2": "Durante a noite, entra numa tempestade onde memória, imaginação e emoções moldam o mundo.",
+      "p3": "A jornada fala sobre orgulho, perdão e infância."
+    },
+    "slide_gameplay": {
+      "title": "Gameplay",
+      "p1": "Toque",
+      "p2": "Arraste",
+      "p3": "Explore",
+      "p4": "Observe",
+      "p5": "Sem estados de falha"
+    },
+    "slide_difference": {
+      "title": "O Que o Torna Diferente",
+      "p1": "História contada pela interação",
+      "p2": "Inspiração Afro-Brasileira",
+      "p3": "Identidade visual em Cordel & xilogravura",
+      "p4": "Design acessível",
+      "p5": "Experiência emocional curta"
+    },
+    "slide_art": {
+      "title": "Direção de Arte",
+      "p1": "Xilogravura",
+      "p2": "Cordel",
+      "p3": "Arte Popular Brasileira"
+    },
+    "slide_audio": {
+      "title": "Áudio",
+      "p1": "Percussão Afro-Brasileira",
+      "p2": "Trilha sonora reativa",
+      "p3": "Narrativa ambiental"
+    },
+    "slide_development": {
+      "title": "Desenvolvimento",
+      "y1": "2024",
+      "y2": "Lei Paulo Gustavo",
+      "y3": "Demo Android",
+      "y4": "Demo Steam",
+      "y5": "Escolas",
+      "y6": "Festivais",
+      "y7": "Janeiro 2027",
+      "note": "O projeto foi apresentado em escolas e eventos comunitários durante o desenvolvimento."
+    },
+    "slide_team": {
+      "title": "Equipe",
+      "t1_role": "Direção • Programação",
+      "t2_role": "Roteiro • Autor de Contos de Exu",
+      "t3_role": "Ilustração",
+      "t4_role": "Música",
+      "t5_role": "Programação",
+      "t6_role": "Marketing"
+    },
+    "slide_status": {
+      "title": "Status Atual",
+      "p1": "Demo disponível",
+      "p2": "Página da Steam no ar",
+      "p3": "Inscrito em festivais",
+      "p4": "Lançamento: Janeiro 2027"
+    },
+    "slide_market": {
+      "title": "Mercado",
+      "target": "Público Alvo:",
+      "target1": "Jogos Narrativos",
+      "target2": "Cozy-adjacent",
+      "target3": "Art games",
+      "target4": "Experiências curtas",
+      "players": "Jogadores que gostaram de Florence, Journey e GRIS."
+    },
+    "slide_why": {
+      "title": "Por que agora?",
+      "p1": "Crescente interesse em jogos culturais",
+      "p2": "Narrativas Afro-Brasileiras pouco representadas",
+      "p3": "Forte apelo para festivais",
+      "p4": "Acessível globalmente"
+    },
+    "slide_contact": {
+      "title": "Contato",
+      "scan": "Escanear QR Code"
+    }
+  },
   "lang_code": "pt-BR",
   "hidden_title_exu": "Vem, Exu!",
   "alt_logo_exu": "Logo do jogo Vem, Exu!",

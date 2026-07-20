@@ -339,6 +339,106 @@
     "alt_event_feira_02": "Fair 02",
     "alt_event_escola_01": "School 01"
   },
+  "vem_exu_pitch_deck": {
+    "title": "Vem, Exu! Pitch Deck",
+    "slide_cover": {
+      "month": "January 2027"
+    },
+    "slide_pitch": {
+      "pitch_1": "Vem, Exu is a short narrative adventure where emotions become gameplay.",
+      "pitch_2": "Inspired by the Brazilian short story <em>Exu Ficou Com Medo</em>, players experience anger, memory and reconciliation through tactile interactions instead of dialogue."
+    },
+    "slide_game": {
+      "title": "The Game",
+      "p1": "Adventure",
+      "p2": "Narrative",
+      "p3": "Puzzle",
+      "p4": "50 minutes",
+      "p5": "Steam + Android",
+      "p6": "Demo available"
+    },
+    "slide_story": {
+      "title": "Story",
+      "p1": "After losing his kite in a fight with his brother, Exu tries to sleep carrying his anger.",
+      "p2": "During the night, his feelings become a storm where memory, imagination and emotions shape the world.",
+      "p3": "The journey is about pride, forgiveness and childhood."
+    },
+    "slide_gameplay": {
+      "title": "Gameplay",
+      "p1": "Touch",
+      "p2": "Drag",
+      "p3": "Explore",
+      "p4": "Observe",
+      "p5": "No fail states"
+    },
+    "slide_difference": {
+      "title": "What Makes It Different",
+      "p1": "Story told through interaction",
+      "p2": "Afro-Brazilian inspiration",
+      "p3": "Cordel & woodcut visual identity",
+      "p4": "Accessible design",
+      "p5": "Short emotional experience"
+    },
+    "slide_art": {
+      "title": "Art Direction",
+      "p1": "Woodcut",
+      "p2": "Cordel",
+      "p3": "Brazilian Folk Art"
+    },
+    "slide_audio": {
+      "title": "Audio",
+      "p1": "Afro-Brazilian percussion",
+      "p2": "Reactive soundtrack",
+      "p3": "Environmental storytelling"
+    },
+    "slide_development": {
+      "title": "Development",
+      "y1": "2024",
+      "y2": "Lei Paulo Gustavo",
+      "y3": "Android Demo",
+      "y4": "Steam Demo",
+      "y5": "Schools",
+      "y6": "Festivals",
+      "y7": "January 2027",
+      "note": "The project was presented in schools and community events during development."
+    },
+    "slide_team": {
+      "title": "Team",
+      "t1_role": "Game Director • Programming",
+      "t2_role": "Writer • Author of Contos de Exu",
+      "t3_role": "Illustration",
+      "t4_role": "Music",
+      "t5_role": "Programming",
+      "t6_role": "Marketing"
+    },
+    "slide_status": {
+      "title": "Current Status",
+      "p1": "Demo available",
+      "p2": "Steam page live",
+      "p3": "Festivals applied",
+      "p4": "Release: January 2027"
+    },
+    "slide_market": {
+      "title": "Market",
+      "target": "Target:",
+      "target1": "Narrative games",
+      "target2": "Cozy-adjacent",
+      "target3": "Art games",
+      "target4": "Short experiences",
+      "players": "Players who enjoyed Florence, Journey, and GRIS."
+    },
+    "slide_why": {
+      "title": "Why Now?",
+      "p1": "Growing interest in cultural games",
+      "p2": "Underrepresented Afro-Brazilian stories",
+      "p3": "Strong festival appeal",
+      "p4": "Accessible worldwide"
+    },
+    "slide_contact": {
+      "title": "Contact",
+      "scan": "Scan QR Code"
+    }
+  },
   "lang_code": "en",
   "hidden_title_exu": "Vem, Exu!",
   "alt_logo_exu": "Vem, Exu! game logo",
