@@ -36,3 +36,22 @@ This file contains strict architectural and styling rules that must be followed 
 * When using or referencing any images, videos, or animations, always consult src/static/assets_meta.json.
 * This file acts as a manifest and contains the complete, detailed accessibility descriptions (alt texts) for every media asset in the project.
 * Do not attempt to guess file contents from their names or read binary metadata directly; the assets_meta.json is the single source of truth for semantic descriptions and alt properties.
+
+## Dev Server
+
+```bash
+npm run dev    # build + watch + serve (port 3000)
+npm run serve  # serve only (port 3000)
+```
+
+## Pitch Deck
+
+Template: `src/templates/press-kit/vem-exu/pitch-deck.hbs`. i18n: `vem_exu_pitch_deck` key in `src/locales/{pt,en}.json`.
+
+```bash
+node pdf_gen/generate_pitch_deck.js  # EN + PT PDFs → src/static/docs/
+```
+
+## Appearances
+
+Source of truth: `../tiu-automator/data/appearances.json`. Contains festivals (selected/submitted/rejected), press coverage, and Steam URL.

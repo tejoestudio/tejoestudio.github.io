@@ -411,11 +411,25 @@
       "t5_role": "Programação",
       "t6_role": "Marketing"
     },
+    "slide_festivals": {
+      "title": "Selecionado para 11 Festivais",
+      "f1": "SBGames 2026",
+      "f2": "Pirate Software Indie Showcase",
+      "f3": "Game Devs of Color Expo",
+      "f4": "Festival Guarnicê 2026",
+      "f5": "ZNT Horizon 2026",
+      "f6": "EVA Play 2026",
+      "f7": "Game Pavilion JP Steam",
+      "f8": "Siará Tech Summit 2026",
+      "f9": "Indie Brazil Showcase",
+      "f10": "DevInitive Showcase",
+      "f11": "Monochropoly Fest"
+    },
     "slide_status": {
       "title": "Status Atual",
       "p1": "Demo disponível",
       "p2": "Página da Steam no ar",
-      "p3": "Inscrito em festivais",
+      "p3": "Comunidade crescendo",
       "p4": "Lançamento: Janeiro 2027"
     },
     "slide_market": {
