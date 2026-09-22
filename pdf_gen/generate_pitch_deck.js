@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
 const path = require('path');
 
 const LANGUAGES = [
@@ -16,10 +17,14 @@ const LANGUAGES = [
         const height = 1080;
 
         for (const { lang, htmlPath, pdfName } of LANGUAGES) {
+            const filePath = path.resolve(__dirname, htmlPath);
+            if (!fs.existsSync(filePath)) {
+                throw new Error(`[${lang}] Pitch deck HTML not found at ${filePath}. Run 'npm run build' first.`);
+            }
+
             const page = await browser.newPage();
             await page.setViewport({ width, height });
 
-            const filePath = path.resolve(__dirname, htmlPath);
             const fileUrl = `file:///${filePath.replace(/\\/g, '/')}`;
             console.log(`[${lang}] Loading: ${fileUrl}`);
 

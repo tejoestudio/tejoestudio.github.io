@@ -282,14 +282,85 @@ html {
   gap: 2rem;
 }
 
+.portfolio-other-grid article a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .portfolio-other-grid figure {
   aspect-ratio: 1;
   margin-bottom: 1.5rem;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.portfolio-other-grid figure:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.portfolio-other-grid figure:hover img {
+  transform: scale(1.05);
+}
+
+.portfolio-other-grid figure img {
+  transition: transform 0.3s ease;
+}
+
+.portfolio-other-grid h5 {
+  margin-top: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.portfolio-other-grid .portfolio-work-team {
+  font-size: 0.8rem;
+  color: #737373;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+.portfolio-other-grid .portfolio-work-link {
+  color: #000;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  display: inline-block;
 }
 
 .portfolio-other-grid p {
   font-size: 0.9rem;
   color: #737373;
+}
+
+.portfolio-placeholder-frame {
+  background: #171717;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  box-shadow: var(--shadow-hard, 4px 4px 0px #000);
+}
+
+.portfolio-placeholder-label {
+  color: #404040;
+  font-family: var(--font-mono);
+  border: 1px dashed #404040;
+  padding: 1rem;
+}
+
+.tejo-btn-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 0.5rem;
 }
 
 @media (min-width: 768px) {
@@ -750,3 +821,126 @@ html {
     border: 1px solid #ccc !important;
   }
 }
+
+/* ==========================================================================
+   Tejo Estúdio - Studio Portfolio Extensions
+   ========================================================================== */
+
+.studio-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.studio-grid-festivals {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.studio-card {
+  background: #262626;
+  border: 1px solid #404040;
+  padding: 1.5rem;
+  border-radius: 2px;
+}
+
+.studio-card-light {
+  background: #fafafa;
+  border: 2px solid #000;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-hard, 4px 4px 0px #000);
+}
+
+.studio-card h4,
+.studio-card-light h4 {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.studio-role-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.studio-card-light .studio-role-tag {
+  background: #000;
+  color: #fff;
+}
+
+.studio-card p {
+  color: #d4d4d4;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.festival-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #171717;
+  box-shadow: 2px 2px 0px #000;
+}
+
+.festival-badge span.check {
+  color: #16a34a;
+  font-weight: 900;
+}
+
+.portfolio-download-btn.btn-founder {
+  margin-left: 0.5rem;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.portfolio-contact-sublink {
+  color: #525252;
+  font-size: 0.85rem;
+}
+
+.portfolio-team-heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-team-subtitle {
+  color: #a3a3a3;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+.portfolio-about-avatar.studio-avatar {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.portfolio-about-avatar.studio-avatar img {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+

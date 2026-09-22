@@ -44,12 +44,18 @@ npm run dev    # build + watch + serve (port 3000)
 npm run serve  # serve only (port 3000)
 ```
 
-## Pitch Deck
+## Portfolios & Pitch Deck
 
-Template: `src/templates/press-kit/vem-exu/pitch-deck.hbs`. i18n: `vem_exu_pitch_deck` key in `src/locales/{pt,en}.json`.
+- **Personal Portfolio:** `src/templates/portfolio.hbs` (i18n: `portfolio` key in `src/locales/{pt,en}.json`).
+- **Studio Portfolio:** `src/templates/portfolio-estudio.hbs` (i18n: `portfolio_estudio` key in `src/locales/{pt,en}.json`).
+- **Pitch Deck:** `src/templates/press-kit/vem-exu/pitch-deck.hbs` (i18n: `vem_exu_pitch_deck` key in `src/locales/{pt,en}.json`).
+
+### PDF Generation
 
 ```bash
-node pdf_gen/generate_pitch_deck.js  # EN + PT PDFs → src/static/docs/
+npm run pdf:portfolio:personal  # Generates src/static/docs/portfolio_michael_feitosa.pdf
+npm run pdf:portfolio:studio    # Generates src/static/docs/portfolio_tejo_estudio.pdf
+npm run pdf:deck                # Generates EN + PT Pitch Deck PDFs in src/static/docs/
 ```
 
 ## Appearances

@@ -10,7 +10,10 @@
     "build": "node build.js",
     "watch": "chokidar \"src/**/*\" -c \"npm run build\"",
     "serve": "browser-sync start --server \"dist\" --files \"dist/**/*\" --no-notify --port 3000",
-    "dev": "npm-run-all build --parallel watch serve"
+    "dev": "npm-run-all build --parallel watch serve",
+    "pdf:portfolio:personal": "node pdf_gen/generate.js portfolio.html portfolio_michael_feitosa.pdf",
+    "pdf:portfolio:studio": "node pdf_gen/generate.js portfolio-estudio.html portfolio_tejo_estudio.pdf",
+    "pdf:deck": "node pdf_gen/generate_pitch_deck.js"
   },
   "repository": {
     "type": "git",

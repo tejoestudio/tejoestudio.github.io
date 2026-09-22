@@ -7,6 +7,26 @@
   <title>{{portfolio.title}}</title>
   <link rel="icon" type="image/png" href="{{{base_path}}}images/tejo_icon.png">
   <meta name="description" content="{{portfolio.meta_description}}">
+  <meta name="author" content="Michael Feitosa">
+  <link rel="canonical" href="{{site_url}}{{canonical_path}}">
+  <link rel="alternate" hreflang="x-default" href="{{site_url}}{{canonical_base_path}}">
+  <link rel="alternate" hreflang="{{lang}}" href="{{site_url}}{{canonical_path}}">
+  {{#each other_langs}}
+  <link rel="alternate" hreflang="{{code}}" href="{{../site_url}}{{canonical_path}}">
+  {{/each}}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{portfolio.title}}">
+  <meta property="og:description" content="{{portfolio.meta_description}}">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="{{site_url}}{{canonical_path}}">
+  <meta property="og:image" content="{{site_url}}images/michael_feitosa.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{portfolio.title}}">
+  <meta name="twitter:description" content="{{portfolio.meta_description}}">
+  <meta name="twitter:image" content="{{site_url}}images/michael_feitosa.png">
 
   <!-- Estilos Base do Tejo Estúdio -->
   <link rel="stylesheet" href="{{{base_path}}}css/tejo-base.css">
@@ -54,7 +74,7 @@
     <div class="portfolio-hero-actions">
       <a href="#projetos" class="tejo-btn primary">{{portfolio.hero_view_projects}} &rarr;</a>
       <a href="{{{base_path}}}docs/portfolio_michael_feitosa.pdf" target="_blank" rel="noopener" class="tejo-btn">
-        <img src="{{{base_path}}}images/icons/download.svg" alt="" style="width: 1.25rem; height: 1.25rem; display: inline; vertical-align: middle; margin-right: 0.5rem;">
+        <img src="{{{base_path}}}images/icons/download.svg" alt="" class="tejo-btn-icon">
         {{{index.download_pdf}}}
       </a>
       <a href="https://kaelfeitosa.itch.io" target="_blank" rel="noopener" class="tejo-btn">Itch.io</a>
@@ -131,8 +151,8 @@
         <!-- RAIAR -->
         <article class="project-article">
           <div class="portfolio-col-span-7 portfolio-order-2">
-             <figure class="aspect-video" style="background: #171717; display: flex; align-items: center; justify-content: center; margin: 0; box-shadow: var(--shadow-hard);">
-                <span style="color: #404040; font-family: var(--font-mono); border: 1px dashed #404040; padding: 1rem;">{{portfolio.raiar_image_soon}}</span>
+             <figure class="aspect-video portfolio-placeholder-frame">
+                <span class="portfolio-placeholder-label">{{portfolio.raiar_image_soon}}</span>
              </figure>
           </div>
           <div class="portfolio-col-span-5 portfolio-order-1 project-details-column">
@@ -158,37 +178,37 @@
         <h4>{{portfolio.other_works_title}}</h4>
         <div class="portfolio-other-grid">
           <article>
-            <a href="https://youtu.be/F-0FELizya8" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
-              <figure style="border: 2px solid #000; box-shadow: 4px 4px 0px #000; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; overflow: hidden;" onmouseover="this.style.transform='translate(-2px, -2px)'; this.style.boxShadow='6px 6px 0px #000';" onmouseout="this.style.transform='none'; this.style.boxShadow='4px 4px 0px #000';">
-                <img src="{{{base_path}}}images/portfolio/maria_da_lua.png" alt="{{portfolio.maria_lua_title}}" class="object-cover tejo-grayscale" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+            <a href="https://youtu.be/F-0FELizya8" target="_blank" rel="noopener">
+              <figure>
+                <img src="{{{base_path}}}images/portfolio/maria_da_lua.png" alt="{{portfolio.maria_lua_title}}" class="object-cover tejo-grayscale">
               </figure>
             </a>
-            <h5 style="margin-top: 1rem; font-weight: 900; text-transform: uppercase;">{{portfolio.maria_lua_title}}</h5>
+            <h5>{{portfolio.maria_lua_title}}</h5>
             <p>{{{portfolio.maria_lua_desc}}}</p>
-            <p style="font-size: 0.8rem; color: #737373; margin-top: 0.5rem; line-height: 1.4;">{{{portfolio.maria_lua_team}}}</p>
-            <a href="https://youtu.be/F-0FELizya8" target="_blank" rel="noopener" class="portfolio-work-link" style="color: #000; font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; font-weight: 700; text-decoration: underline; margin-top: 0.5rem; display: inline-block;">YouTube &nearrow;</a>
+            <p class="portfolio-work-team">{{{portfolio.maria_lua_team}}}</p>
+            <a href="https://youtu.be/F-0FELizya8" target="_blank" rel="noopener" class="portfolio-work-link">YouTube &nearrow;</a>
           </article>
           <article>
-            <a href="https://play.google.com/store/apps/details?id=dev.tiugames.hamilton" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
-              <figure style="border: 2px solid #000; box-shadow: 4px 4px 0px #000; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; overflow: hidden;" onmouseover="this.style.transform='translate(-2px, -2px)'; this.style.boxShadow='6px 6px 0px #000';" onmouseout="this.style.transform='none'; this.style.boxShadow='4px 4px 0px #000';">
-                <img src="{{{base_path}}}images/portfolio/hamilton.png" alt="{{portfolio.hamilton_title}}" class="object-cover tejo-grayscale" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+            <a href="https://play.google.com/store/apps/details?id=dev.tiugames.hamilton" target="_blank" rel="noopener">
+              <figure>
+                <img src="{{{base_path}}}images/portfolio/hamilton.png" alt="{{portfolio.hamilton_title}}" class="object-cover tejo-grayscale">
               </figure>
             </a>
-            <h5 style="margin-top: 1rem; font-weight: 900; text-transform: uppercase;">{{portfolio.hamilton_title}}</h5>
+            <h5>{{portfolio.hamilton_title}}</h5>
             <p>{{{portfolio.hamilton_desc}}}</p>
-            <p style="font-size: 0.8rem; color: #737373; margin-top: 0.5rem; line-height: 1.4;">{{{portfolio.hamilton_team}}}</p>
-            <a href="https://play.google.com/store/apps/details?id=dev.tiugames.hamilton" target="_blank" rel="noopener" class="portfolio-work-link" style="color: #000; font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; font-weight: 700; text-decoration: underline; margin-top: 0.5rem; display: inline-block;">Google Play &nearrow;</a>
+            <p class="portfolio-work-team">{{{portfolio.hamilton_team}}}</p>
+            <a href="https://play.google.com/store/apps/details?id=dev.tiugames.hamilton" target="_blank" rel="noopener" class="portfolio-work-link">Google Play &nearrow;</a>
           </article>
           <article>
-            <a href="https://kaelfeitosa.itch.io/the-sias-oath" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
-              <figure style="border: 2px solid #000; box-shadow: 4px 4px 0px #000; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; overflow: hidden;" onmouseover="this.style.transform='translate(-2px, -2px)'; this.style.boxShadow='6px 6px 0px #000';" onmouseout="this.style.transform='none'; this.style.boxShadow='4px 4px 0px #000';">
-                <img src="{{{base_path}}}images/portfolio/sina_de_sia.png" alt="{{portfolio.sina_sia_title}}" class="object-cover tejo-grayscale" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+            <a href="https://kaelfeitosa.itch.io/the-sias-oath" target="_blank" rel="noopener">
+              <figure>
+                <img src="{{{base_path}}}images/portfolio/sina_de_sia.png" alt="{{portfolio.sina_sia_title}}" class="object-cover tejo-grayscale">
               </figure>
             </a>
-            <h5 style="margin-top: 1rem; font-weight: 900; text-transform: uppercase;">{{portfolio.sina_sia_title}}</h5>
+            <h5>{{portfolio.sina_sia_title}}</h5>
             <p>{{{portfolio.sina_sia_desc}}}</p>
-            <p style="font-size: 0.8rem; color: #737373; margin-top: 0.5rem; line-height: 1.4;">{{{portfolio.sina_sia_team}}}</p>
-            <a href="https://kaelfeitosa.itch.io/the-sias-oath" target="_blank" rel="noopener" class="portfolio-work-link" style="color: #000; font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; font-weight: 700; text-decoration: underline; margin-top: 0.5rem; display: inline-block;">Itch.io &nearrow;</a>
+            <p class="portfolio-work-team">{{{portfolio.sina_sia_team}}}</p>
+            <a href="https://kaelfeitosa.itch.io/the-sias-oath" target="_blank" rel="noopener" class="portfolio-work-link">Itch.io &nearrow;</a>
           </article>
         </div>
       </div>
@@ -218,13 +238,19 @@
             </div>
             <div class="portfolio-event-gallery">
               <figure class="portfolio-gallery-item">
-                <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/sana_2026_1_01.jpeg" alt="{{{presskit.alt_event_sana_01}}}" class="tejo-grayscale" onclick="window.open(this.src)">
+                <a href="{{{base_path}}}press-kit/vem-exu/03_community/events/sana_2026_1_01.jpeg" target="_blank" rel="noopener" aria-label="{{{presskit.alt_event_sana_01}}}">
+                  <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/sana_2026_1_01.jpeg" alt="{{{presskit.alt_event_sana_01}}}" class="tejo-grayscale">
+                </a>
               </figure>
               <figure class="portfolio-gallery-item">
-                <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/sana_2026_1_02.jpeg" alt="{{{presskit.alt_event_sana_02}}}" class="tejo-grayscale" onclick="window.open(this.src)">
+                <a href="{{{base_path}}}press-kit/vem-exu/03_community/events/sana_2026_1_02.jpeg" target="_blank" rel="noopener" aria-label="{{{presskit.alt_event_sana_02}}}">
+                  <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/sana_2026_1_02.jpeg" alt="{{{presskit.alt_event_sana_02}}}" class="tejo-grayscale">
+                </a>
               </figure>
               <figure class="portfolio-gallery-item">
-                <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/sana_2026_1_03.jpeg" alt="Sana 3" class="tejo-grayscale" onclick="window.open(this.src)">
+                <a href="{{{base_path}}}press-kit/vem-exu/03_community/events/sana_2026_1_03.jpeg" target="_blank" rel="noopener" aria-label="{{{presskit.alt_event_sana_03}}}">
+                  <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/sana_2026_1_03.jpeg" alt="{{{presskit.alt_event_sana_03}}}" class="tejo-grayscale">
+                </a>
               </figure>
             </div>
           </article>
@@ -242,13 +268,19 @@
             </div>
             <div class="portfolio-event-gallery">
               <figure class="portfolio-gallery-item">
-                <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/feira_do_conhecimento_01.jpeg" alt="{{{presskit.alt_event_feira_01}}}" class="tejo-grayscale" onclick="window.open(this.src)">
+                <a href="{{{base_path}}}press-kit/vem-exu/03_community/events/feira_do_conhecimento_01.jpeg" target="_blank" rel="noopener" aria-label="{{{presskit.alt_event_feira_01}}}">
+                  <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/feira_do_conhecimento_01.jpeg" alt="{{{presskit.alt_event_feira_01}}}" class="tejo-grayscale">
+                </a>
               </figure>
               <figure class="portfolio-gallery-item">
-                <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/feira_do_conhecimento_02.jpeg" alt="{{{presskit.alt_event_feira_02}}}" class="tejo-grayscale" onclick="window.open(this.src)">
+                <a href="{{{base_path}}}press-kit/vem-exu/03_community/events/feira_do_conhecimento_02.jpeg" target="_blank" rel="noopener" aria-label="{{{presskit.alt_event_feira_02}}}">
+                  <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/feira_do_conhecimento_02.jpeg" alt="{{{presskit.alt_event_feira_02}}}" class="tejo-grayscale">
+                </a>
               </figure>
               <figure class="portfolio-gallery-item">
-                <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/feira_do_conhecimento_03.jpeg" alt="Feira 3" class="tejo-grayscale" onclick="window.open(this.src)">
+                <a href="{{{base_path}}}press-kit/vem-exu/03_community/events/feira_do_conhecimento_03.jpeg" target="_blank" rel="noopener" aria-label="{{{presskit.alt_event_feira_03}}}">
+                  <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/feira_do_conhecimento_03.jpeg" alt="{{{presskit.alt_event_feira_03}}}" class="tejo-grayscale">
+                </a>
               </figure>
             </div>
           </article>
@@ -266,13 +298,19 @@
             </div>
             <div class="portfolio-event-gallery">
               <figure class="portfolio-gallery-item">
-                <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/escola_torres_de_melo_01.jpg" alt="{{{presskit.alt_event_escola_01}}}" class="tejo-grayscale" onclick="window.open(this.src)">
+                <a href="{{{base_path}}}press-kit/vem-exu/03_community/events/escola_torres_de_melo_01.jpg" target="_blank" rel="noopener" aria-label="{{{presskit.alt_event_escola_01}}}">
+                  <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/escola_torres_de_melo_01.jpg" alt="{{{presskit.alt_event_escola_01}}}" class="tejo-grayscale">
+                </a>
               </figure>
               <figure class="portfolio-gallery-item">
-                <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/nac_passare_01.jpg" alt="NAC Passaré 1" class="tejo-grayscale" onclick="window.open(this.src)">
+                <a href="{{{base_path}}}press-kit/vem-exu/03_community/events/nac_passare_01.jpg" target="_blank" rel="noopener" aria-label="{{{presskit.alt_event_nac_01}}}">
+                  <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/nac_passare_01.jpg" alt="{{{presskit.alt_event_nac_01}}}" class="tejo-grayscale">
+                </a>
               </figure>
               <figure class="portfolio-gallery-item">
-                <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/nac_passare_02.jpg" alt="NAC Passaré 2" class="tejo-grayscale" onclick="window.open(this.src)">
+                <a href="{{{base_path}}}press-kit/vem-exu/03_community/events/nac_passare_02.jpg" target="_blank" rel="noopener" aria-label="{{{presskit.alt_event_nac_02}}}">
+                  <img src="{{{base_path}}}press-kit/vem-exu/03_community/events/nac_passare_02.jpg" alt="{{{presskit.alt_event_nac_02}}}" class="tejo-grayscale">
+                </a>
               </figure>
             </div>
           </article>

@@ -1,18 +1,27 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
 const path = require('path');
 
 (async () => {
+    let browser;
     try {
+        const targetHtml = process.argv[2] || 'portfolio.html';
+        const outputPdfName = process.argv[3] || 'portfolio_michael_feitosa.pdf';
+
+        // Use the absolute path to the target html in the dist directory
+        const filePath = path.resolve(__dirname, '../dist', targetHtml);
+        if (!fs.existsSync(filePath)) {
+            throw new Error(`Target HTML file not found at ${filePath}. Run 'npm run build' before generating PDFs.`);
+        }
+
         console.log('Launching browser...');
-        const browser = await puppeteer.launch();
+        browser = await puppeteer.launch();
         const page = await browser.newPage();
         
         // Define screen viewport (1080p)
         const width = 1920;
         await page.setViewport({ width, height: 1080 }); // Initial HD viewport
         
-        // Use the absolute path to portfolio.html in the dist directory
-        const filePath = path.resolve(__dirname, '../dist/portfolio.html');
         // Construct a file URL
         const fileUrl = `file:///${filePath.replace(/\\/g, '/')}`;
         console.log(`Loading page: ${fileUrl}`);
@@ -28,29 +37,11 @@ const path = require('path');
         // So 100vh becomes the entire document length instead of 1080px.
         // We fix this by hardcoding pixel heights for the 1080p elements BEFORE calculating total height.
         await page.evaluate(() => {
-            // Fix hero section
             const hero = document.getElementById('home');
             if (hero) {
                 // 85% of 1080px = 918px
                 hero.style.setProperty('min-height', '918px', 'important');
-                hero.classList.remove('min-h-[85vh]');
             }
-            
-            // Fix root wrapper (which has min-h-screen)
-            const wrapper = document.querySelector('.min-h-screen');
-            if (wrapper) {
-                wrapper.style.setProperty('min-height', '1080px', 'important');
-                wrapper.classList.remove('min-h-screen');
-            }
-            
-            // Any other vh dependencies
-            const style = document.createElement('style');
-            style.innerHTML = `
-                .min-h-\\[85vh\\] { min-height: 918px !important; }
-                .min-h-screen { min-height: 1080px !important; }
-                .h-screen { height: 1080px !important; }
-            `;
-            document.head.appendChild(style);
         });
         
         // Let it settle any layout changes
@@ -70,7 +61,7 @@ const path = require('path');
         await new Promise(r => setTimeout(r, 500));
         
         // Generate PDF
-        const pdfPath = path.resolve(__dirname, '../src/static/docs/portfolio_michael_feitosa.pdf');
+        const pdfPath = path.resolve(__dirname, '../src/static/docs', outputPdfName);
         console.log(`Generating PDF at ${pdfPath}...`);
         
         await page.pdf({
@@ -82,9 +73,12 @@ const path = require('path');
         });
         
         console.log('PDF generation complete. File saved to:', pdfPath);
-        await browser.close();
     } catch (e) {
         console.error('Error generating PDF:', e);
         process.exit(1);
+    } finally {
+        if (browser) {
+            await browser.close();
+        }
     }
 })();
