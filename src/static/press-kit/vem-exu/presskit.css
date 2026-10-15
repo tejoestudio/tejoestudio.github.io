@@ -646,6 +646,15 @@ button[data-download]:active {
   font-size: 1.35rem;
 }
 
+.pk-team-item h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pk-team-item h3 a:hover {
+  text-decoration: underline;
+}
+
 .pk-team-item p {
   margin-bottom: 0.25rem;
   line-height: 1.4;

@@ -472,7 +472,7 @@
       <div class="pk-team-list">
         {{#each presskit.team}}
         <div class="pk-team-item">
-          <h3>{{{name}}}</h3>
+          <h3>{{#if url}}<a href="{{url}}" target="_blank" rel="noopener">{{{name}}} &nearrow;</a>{{else}}{{{name}}}{{/if}}</h3>
           <p class="pk-role">{{{role}}}</p>
           {{#if desc}}
           <p>{{{desc}}}</p>

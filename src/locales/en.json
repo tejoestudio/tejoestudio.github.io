@@ -25,10 +25,10 @@
     "vem_exu_desc": "An interactive tale inspired by the short story “Exu Was Afraid”, from the book Tales of Exu, by Rafael Semino. The narrative follows a boy crossing a fantastic storm after losing his kite. The narrative explores childhood themes, pride, and reconciliation through a graphical aesthetics based on silhouettes and contrast.",
     "vem_exu_poetics": "<strong>Poetics:</strong> Small gestures, silhouettes",
     "vem_exu_tech": "<strong>Tech:</strong> Godot 4 • Demo available on Steam",
-    "vem_exu_highlight": "<strong>Highlight:</strong> Project developed with support of the Lei Paulo Gustavo (CE) in 2024",
+    "vem_exu_highlight": "<strong>Highlight:</strong> Project supported by the Paulo Gustavo Law (Secult Ceará and Ministry of Culture of Brazil)",
     "vem_exu_circulation": "<strong>Circulation:</strong> SANA (Black Heroes Room), Feira do Conhecimento, and educational presentations in public schools and community spaces in Fortaleza",
     "vem_exu_team": "<strong>Team:</strong>",
-    "vem_exu_team_desc": "Creative direction, game design, and programming by Michael Feitosa<br>With collaboration from Rafael Semino, Douglas Levi, Valdir Marte, and Zéis.",
+    "vem_exu_team_desc": "Creative direction, game design, and programming by Michael Feitosa<br>With collaboration from Rafael Semino, Valdir Marte, Zéis, and Douglas Levi.",
     "vem_exu_play_demo": "View on Steam",
     "raiar_title": "RAIAR",
     "raiar_tag1": "2025–2026",
@@ -48,9 +48,9 @@
     "sina_sia_desc": "<strong>Metroidvania</strong> inspired by cordel aesthetics, with a narrative about struggle, memory, and popular imagery.",
     "sina_sia_team": "Game design, writing, art and programming",
     "grants_title": "Grants and Supports",
-    "grant_lpg_title": "Lei Paulo Gustavo — Ceará, 2024",
+    "grant_lpg_title": "Lei Paulo Gustavo - Ceará, 2024",
     "grant_lpg_desc": "Development of the game Vem, Exu",
-    "grant_artes_title": "Edital das Artes — Fortaleza, 2024",
+    "grant_artes_title": "Edital das Artes - Fortaleza, 2024",
     "grant_artes_desc": "Development of the installation Raiar",
     "circulation_title": "Exhibitions and Circulation",
     "circulation_desc": "The studio's works were presented in cultural events, technology fairs, and educational activities in public schools and community spaces in Fortaleza.",
@@ -94,12 +94,12 @@
     "playstore_btn": "Also on Google Play",
     "steam_wishlist_btn": "Wishlist on Steam",
     "steam_demo_btn": "Play the demo",
-    "vem_exu_desc2": "<em>Based on the short story \"Exu was afraid\", from the book Tales of Exu, by Rafael Semino, with illustrations by Valdir Marte, music by Zéis, and game design by Michael Feitosa.</em>",
+    "vem_exu_desc2": "<em>Based on the short story \"Exu Was Afraid\", from the book Tales of Exu, by Rafael Semino, with illustrations by Valdir Marte, music by Zéis, and direction by Michael Feitosa.</em>",
     "instagram": "Instagram",
     "amazon": "Tales of Exu Book",
     "presskit": "Press Kit",
     "footer": "Independent studio making narrative games and interactive experiences.",
-    "footer_meta": "Fortaleza, Ceará. &copy; 2026",
+    "footer_meta": "© 2024–2026 Tejo Estúdio. All rights reserved.",
     "aria_nav_links": "Tejo Studio Links",
     "privacy": "Privacy",
     "trailer_aria": "Watch official game trailer",
@@ -267,7 +267,7 @@
     "meta_description": "Official press kit of Vem, Exu, an interactive story about pride, fear and a lost kite.",
     "meta_og_description": "Official materials, trailer, screenshots, key art and press information for Vem, Exu.",
     "publish_long_title": "Three paragraphs",
-    "publish_long_p1": "Vem, Exu is a short interactive narrative developed by Estúdio Tejo, from Fortaleza, Ceará. Inspired by the short story <em>Exu Was Afraid</em>, from the book <em>Tales of Exu</em> (Rafael Semino), the game follows a boy who, after losing his kite, is taken to a world where his feelings take the form of a storm.",
+    "publish_long_p1": "Vem, Exu is a short interactive narrative developed by Tejo Estúdio, from Fortaleza, Ceará. Inspired by the short story <em>Exu Was Afraid</em>, from the book <em>Tales of Exu</em> (Rafael Semino), the game follows a boy who, after losing his kite, is taken to a world where his feelings take the form of a storm.",
     "publish_long_p2": "The story is told with few texts: the player understands everything by interacting with the environment, through sound and movement. The art direction in black, white and red draws from woodcut and cordel literature, while the reactive soundtrack brings Afro-Brazilian percussion and sounds from Ceará.",
     "publish_long_p3": "With about 50 minutes of total duration (15-minute demo), Vem, Exu is an accessible and universal experience: with a minimal language barrier, no time pressure, designed for those who always play and for those who have never played. The demo is available on Google Play, with a Steam version scheduled for July 2026 and full release in 2027.",
     "aria_nav_presskit": "Press kit navigation",
@@ -280,38 +280,45 @@
     "team": [
       {
         "name": "Michael Feitosa",
-        "role": "Game Design, Programming, Creative Direction",
-        "desc": "Game designer and developer with over 15 years of software experience. Coordinates Tejo Studio and leads the development of Vem, Exu."
+        "role": "Creative Direction, Game Design & Programming",
+        "desc": "Game designer and developer with over 15 years of software experience. Founder of Tejo Estúdio and creator of Vem, Exu.",
+        "url": "https://kaelfeitosa.github.io/tejoestudio/portfolio.html"
       },
       {
         "name": "Rafael Semino",
-        "role": "Writing",
-        "desc": "Actor, playwright and arts researcher. Master in Arts from UFC and author of the book <em>Tales of Exu</em>."
+        "role": "Original Work & Script Consultant",
+        "desc": "Actor, playwright and arts researcher. Master in Arts from UFC and author of the short story <em>Exu Was Afraid</em> (book <em>Tales of Exu</em>).",
+        "url": "https://www.instagram.com/rafaelsemino/"
       },
       {
         "name": "Valdir Marte",
-        "role": "Illustration and Art",
-        "desc": "Illustrator and graphic designer working in publishing and cultural projects."
+        "role": "Art Direction & Illustration",
+        "desc": "Visual artist and comic creator from Ceará, researching digital woodcuts and popular northeastern visualities.",
+        "url": "https://www.instagram.com/valdirmarte/"
       },
       {
         "name": "Zéis",
-        "role": "Soundtrack and Sound Design",
-        "desc": "Singer, songwriter and cultural producer. Develops the soundscape and reactive soundtrack for Vem, Exu."
+        "role": "Original Soundtrack & Sound Design",
+        "desc": "Singer, songwriter and cultural producer. Develops the soundscape and reactive soundtrack for Vem, Exu.",
+        "url": "https://www.instagram.com/zeis_musica/"
       },
       {
         "name": "Douglas Levi",
-        "role": "Programming",
-        "desc": null
+        "role": "Programming & QA",
+        "desc": null,
+        "url": null
       },
       {
         "name": "Laura Lucca",
-        "role": "Accessibility",
-        "desc": null
+        "role": "Accessibility Support",
+        "desc": null,
+        "url": null
       },
       {
         "name": "Carlos Marques",
-        "role": "Social Media",
-        "desc": null
+        "role": "Communications Support",
+        "desc": null,
+        "url": null
       }
     ],
     "alt_sticker_color_01": "Sticker Color 01",
@@ -409,12 +416,13 @@
     },
     "slide_team": {
       "title": "Team",
-      "t1_role": "Game Director • Programming",
-      "t2_role": "Writer • Author of Contos de Exu",
-      "t3_role": "Illustration",
-      "t4_role": "Music",
-      "t5_role": "Programming",
-      "t6_role": "Marketing"
+      "t1_role": "Creative Direction • Game Design • Programming",
+      "t2_role": "Original Work • Script Consultant",
+      "t3_role": "Art Direction • Illustration",
+      "t4_role": "Original Soundtrack • Sound Design",
+      "t5_role": "Programming • QA",
+      "t6_role": "Communications Support",
+      "t7_role": "Accessibility Support"
     },
     "slide_festivals": {
       "title": "Selected for 11 Festivals",
@@ -480,15 +488,15 @@
     "circulation_intro": "Tejo Estúdio maintains continuous sociocultural action across Ceará, bringing games to science fairs, pop culture conventions and educational outreach in public schools.",
     "team_title": "CREATIVE CORE & GOVERNANCE",
     "team_subtitle": "Multidisciplinary team with expertise in software engineering, dramaturgy, visual arts and cultural research:",
-    "team_michael_role": "Founder • Creative Direction • Game Design • Software Architecture",
+    "team_michael_role": "Founder • Creative Direction • Game Design • Programming",
     "team_michael_bio": "Game Design student (ECDD/Infnet), B.S. in Computer Science (FFB 2012), with 15+ years of software development and technical leadership at ThoughtWorks.",
-    "team_rafael_role": "Writing • Dramaturgy • Oral Traditions",
+    "team_rafael_role": "Original Work • Script Consultant • Dramaturgy",
     "team_rafael_bio": "Actor, playwright and researcher. M.A. in Arts from UFC. Author of the literary book Contos de Exu.",
     "team_valdir_role": "Art Direction • Illustration • Digital Woodcut",
     "team_valdir_bio": "Visual artist and comic creator from Ceará. Degree in Graphic Design from Fa7, researching popular printmaking and northeastern visualities.",
-    "team_zeis_role": "Musical Direction • Ten-string Guitar • Sound Design",
+    "team_zeis_role": "Original Soundtrack • Sound Design • Musical Direction",
     "team_zeis_bio": "Musician, composer and music producer from Ceará, researching traditional rhythms, Afro-Brazilian percussion and soundscapes.",
-    "team_douglas_role": "Software Engineering • QA • Accessibility",
+    "team_douglas_role": "Programming • QA • Software Engineering",
     "team_douglas_bio": "Game developer specialized in Godot 4 architecture, quality pipelines and game accessibility guidelines.",
     "festivals_title": "OFFICIAL SELECTIONS & AWARDS (2026)",
     "festivals_subtitle": "Recognition of studio productions in competitive showcases and festivals:",

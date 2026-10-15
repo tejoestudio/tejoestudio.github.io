@@ -25,10 +25,10 @@
     "vem_exu_desc": "Um conto interativo inspirado na história “Exu Ficou com Medo”, do livro Contos de Exu, de Rafael Semino. A narrativa acompanha um menino que atravessa uma tempestade fantástica após perder sua arraia. A narrativa explora temas de infância, orgulho e reconciliação por meio de uma estética gráfica baseada em silhuetas e contraste.",
     "vem_exu_poetics": "<strong>Poética:</strong> Gestos pequenos, silhuetas",
     "vem_exu_tech": "<strong>Tech:</strong> Godot 4 • Demo disponível na Steam",
-    "vem_exu_highlight": "<strong>Destaque:</strong> Projeto desenvolvido com apoio da Lei Paulo Gustavo (CE) em 2024",
+    "vem_exu_highlight": "<strong>Destaque:</strong> Projeto apoiado pela Lei Paulo Gustavo (Secult Ceará e Ministério da Cultura)",
     "vem_exu_circulation": "<strong>Circulação:</strong> SANA (Sala Black Heroes), Feira do Conhecimento e apresentações educativas em escolas públicas e espaços comunitários de Fortaleza",
     "vem_exu_team": "<strong>Equipe:</strong>",
-    "vem_exu_team_desc": "Direção criativa, game design e programação por Michael Feitosa<br>Com colaboração de Rafael Semino, Douglas Levi, Valdir Marte e Zéis.",
+    "vem_exu_team_desc": "Direção criativa, game design e programação por Michael Feitosa<br>Com colaboração de Rafael Semino, Valdir Marte, Zéis e Douglas Levi.",
     "vem_exu_play_demo": "Ver na Steam",
     "raiar_title": "RAIAR",
     "raiar_tag1": "2025–2026",
@@ -48,9 +48,9 @@
     "sina_sia_desc": "<strong>Metroidvania</strong> inspirado na estética do cordel, com narrativa sobre luta, memória e imaginário popular.",
     "sina_sia_team": "Game design, roteiro, arte e programação",
     "grants_title": "Editais e Apoios",
-    "grant_lpg_title": "Lei Paulo Gustavo — Ceará, 2024",
+    "grant_lpg_title": "Lei Paulo Gustavo - Ceará, 2024",
     "grant_lpg_desc": "Desenvolvimento do jogo Vem, Exu",
-    "grant_artes_title": "Edital das Artes — Fortaleza, 2024",
+    "grant_artes_title": "Edital das Artes - Fortaleza, 2024",
     "grant_artes_desc": "Desenvolvimento da instalação Raiar",
     "circulation_title": "Exposições e Circulação",
     "circulation_desc": "As obras do estúdio foram apresentadas em eventos culturais, feiras de tecnologia e atividades educativas em escolas públicas e espaços comunitários de Fortaleza.",
@@ -94,12 +94,12 @@
     "playstore_btn": "Também no Google Play",
     "steam_wishlist_btn": "Wishlist na Steam",
     "steam_demo_btn": "Jogar a demo",
-    "vem_exu_desc2": "<em>Baseado no conto “Exu ficou com medo”, do livro Contos de Exu, de Rafael Semino, com ilustrações de Valdir Marte, música de Zéis e game design de Michael Feitosa.</em>",
+    "vem_exu_desc2": "<em>Baseado no conto “Exu Ficou Com Medo”, do livro Contos de Exu, de Rafael Semino, com ilustrações de Valdir Marte, música de Zéis e direção de Michael Feitosa.</em>",
     "instagram": "Instagram",
     "amazon": "Livro Contos de Exu",
     "presskit": "Press Kit",
     "footer": "Estúdio independente de jogos narrativos e experiências interativas.",
-    "footer_meta": "Fortaleza, Ceará. &copy; 2026",
+    "footer_meta": "© 2024–2026 Tejo Estúdio. Todos os direitos reservados.",
     "aria_nav_links": "Links Tejo Estúdio",
     "privacy": "Privacidade",
     "trailer_aria": "Assistir trailer oficial do jogo",
@@ -267,7 +267,7 @@
     "meta_description": "Press kit oficial de Vem, Exu, um conto interativo sobre orgulho, medo e uma arraia perdida.",
     "meta_og_description": "Materiais oficiais, trailer, screenshots, key art e informações de imprensa de Vem, Exu.",
     "publish_long_title": "Três parágrafos",
-    "publish_long_p1": "Vem, Exu é uma narrativa interativa curta desenvolvida pelo Estúdio Tejo, de Fortaleza, Ceará. Inspirado no conto <em>Exu Ficou Com Medo</em>, do livro <em>Contos de Exu</em> (Rafael Semino), o jogo acompanha um menino que, após perder sua arraia, é levado a um mundo onde seus sentimentos ganham forma de tempestade.",
+    "publish_long_p1": "Vem, Exu é uma narrativa interativa curta desenvolvida pelo Tejo Estúdio, de Fortaleza, Ceará. Inspirado no conto <em>Exu Ficou Com Medo</em>, do livro <em>Contos de Exu</em> (Rafael Semino), o jogo acompanha um menino que, após perder sua arraia, é levado a um mundo onde seus sentimentos ganham forma de tempestade.",
     "publish_long_p2": "A história é contada com poucos textos: o jogador entende tudo pela interação com o ambiente, pelo som e pelo movimento. A direção de arte em preto, branco e vermelho bebe de xilogravura e literatura de cordel, enquanto a trilha sonora reativa traz percussão afro-brasileira e sonoridades cearenses.",
     "publish_long_p3": "Com cerca de 50 minutos de duração total (demo de 15 minutos), Vem, Exu é uma experiência acessível e universal: com mínima barreira de idioma, sem pressão de tempo, pensada para quem joga sempre e para quem nunca jogou. A demo está disponível no Google Play, com versão Steam prevista para julho de 2026 e lançamento completo em 2027.",
     "aria_nav_presskit": "Navegação do press kit",
@@ -280,38 +280,45 @@
     "team": [
       {
         "name": "Michael Feitosa",
-        "role": "Game Design, Programação, Direção Criativa",
-        "desc": "Game designer e desenvolvedor com mais de 15 anos de experiência em software. Coordena o Estúdio Tejo e lidera o desenvolvimento de Vem, Exu."
+        "role": "Direção Criativa, Game Design e Programação",
+        "desc": "Game designer e desenvolvedor com mais de 15 anos de experiência em software. Fundador do Tejo Estúdio e criador de Vem, Exu.",
+        "url": "https://kaelfeitosa.github.io/tejoestudio/portfolio.html"
       },
       {
         "name": "Rafael Semino",
-        "role": "Roteiro",
-        "desc": "Ator, dramaturgo e pesquisador em artes. Mestre em Artes pela UFC e autor do livro <em>Contos de Exu</em>."
+        "role": "Obra Original e Consultoria de Roteiro",
+        "desc": "Ator, dramaturgo e pesquisador em artes. Mestre em Artes pela UFC e autor do conto “Exu Ficou Com Medo” (livro <em>Contos de Exu</em>).",
+        "url": "https://www.instagram.com/rafaelsemino/"
       },
       {
         "name": "Valdir Marte",
-        "role": "Ilustração e Arte",
-        "desc": "Ilustradora e designer gráfica com atuação em projetos editoriais e culturais."
+        "role": "Direção de Arte e Ilustração",
+        "desc": "Artista visual e quadrinista cearense, com pesquisa em xilogravura digital e visualidades populares nordestinas.",
+        "url": "https://www.instagram.com/valdirmarte/"
       },
       {
         "name": "Zéis",
-        "role": "Trilha Sonora e Sonografia",
-        "desc": "Cantor, compositor e produtor cultural. Desenvolve a paisagem sonora e a trilha reativa de Vem, Exu."
+        "role": "Trilha Sonora Original e Sonografia",
+        "desc": "Músico, compositor e produtor cultural. Desenvolve a paisagem sonora e a trilha reativa de Vem, Exu.",
+        "url": "https://www.instagram.com/zeis_musica/"
       },
       {
         "name": "Douglas Levi",
-        "role": "Programação",
-        "desc": null
+        "role": "Programação e QA",
+        "desc": null,
+        "url": null
       },
       {
         "name": "Laura Lucca",
-        "role": "Acessibilidade",
-        "desc": null
+        "role": "Apoio em Acessibilidade",
+        "desc": null,
+        "url": null
       },
       {
         "name": "Carlos Marques",
-        "role": "Social Media",
-        "desc": null
+        "role": "Apoio em Comunicação",
+        "desc": null,
+        "url": null
       }
     ],
     "alt_sticker_color_01": "Sticker Color 01",
@@ -409,12 +416,13 @@
     },
     "slide_team": {
       "title": "Equipe",
-      "t1_role": "Direção • Programação",
-      "t2_role": "Roteiro • Autor de Contos de Exu",
-      "t3_role": "Ilustração",
-      "t4_role": "Música",
-      "t5_role": "Programação",
-      "t6_role": "Marketing"
+      "t1_role": "Direção Criativa • Game Design • Programação",
+      "t2_role": "Obra Original • Consultoria de Roteiro",
+      "t3_role": "Direção de Arte • Ilustração",
+      "t4_role": "Trilha Sonora Original • Sonografia",
+      "t5_role": "Programação • QA",
+      "t6_role": "Apoio em Comunicação",
+      "t7_role": "Apoio em Acessibilidade"
     },
     "slide_festivals": {
       "title": "Selecionado para 11 Festivais",
@@ -480,15 +488,15 @@
     "circulation_intro": "O Tejo Estúdio mantém atuação sociocultural contínua no Ceará, levando jogos autorais a feiras científicas, convenções de cultura pop e mediações educativas com estudantes da rede pública.",
     "team_title": "NÚCLEO CRIATIVO E GOVERNANÇA",
     "team_subtitle": "Equipe multidisciplinar com experiência em engenharia de software, dramaturgia, artes visuais e pesquisa cultural:",
-    "team_michael_role": "Fundador • Direção Criativa • Game Design • Arquitetura de Software",
+    "team_michael_role": "Fundador • Direção Criativa • Game Design • Programação",
     "team_michael_bio": "Graduando em Design de Jogos (ECDD/Infnet), Bacharel em Ciência da Computação (FFB 2012), com mais de 15 anos de trajetória em desenvolvimento e liderança técnica na ThoughtWorks.",
-    "team_rafael_role": "Roteiro • Dramaturgia • Tradição Oral",
+    "team_rafael_role": "Obra Original • Consultoria de Roteiro • Dramaturgia",
     "team_rafael_bio": "Ator, dramaturgo e pesquisador. Mestre em Artes pela Universidade Federal do Ceará (UFC). Autor da obra literária Contos de Exu.",
     "team_valdir_role": "Direção de Arte • Ilustração • Xilogravura Digital",
     "team_valdir_bio": "Artista visual e quadrinista cearense. Formado em Design Gráfico pela Fa7, com ampla pesquisa em gravura popular e visualidades nordestinas.",
-    "team_zeis_role": "Direção Musical • Viola Caipira • Sound Design",
+    "team_zeis_role": "Trilha Sonora Original • Sonografia • Direção Musical",
     "team_zeis_bio": "Músico, compositor e produtor musical cearense. Pesquisa ritmos tradicionais, percussão afro-brasileira e paisagens sonoras nordestinas.",
-    "team_douglas_role": "Engenharia de Software • QA • Acessibilidade",
+    "team_douglas_role": "Programação • QA • Engenharia de Software",
     "team_douglas_bio": "Desenvolvedor de jogos e especialista em arquitetura Godot 4, pipelines de qualidade e implementação de diretrizes de acessibilidade.",
     "festivals_title": "CHANCELAS E SELEÇÕES OFICIAIS (2026)",
     "festivals_subtitle": "Reconhecimento das produções do estúdio em mostras competitivas e vitrines de prestígio nacional e internacional:",
